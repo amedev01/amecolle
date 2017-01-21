@@ -11,7 +11,7 @@
 		<title>AmeminCollection!!</title>
 	</head> 
 	<body>
-	<h2>Hello!! This is Amemin Collection!! test</h2>
+	<h2>Hello!! This is Amemin Collection!! </h2>
 		<c:url value="/play" var="messageUrl" />
 		<a href="${messageUrl}">Let's Play!!</a>
 	</body>
