@@ -8,16 +8,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import jp.co.ameminMJ.web.form.LoginForm;
+import jp.co.ameminMJ.web.form.DeckHomeForm;
 
 @Controller
-public class DeckEditController {
+public class DeckHomeController {
 
 	
 	
 	@RequestMapping("/deckedit")
-	public String execute(@ModelAttribute LoginForm loginForm,HttpServletRequest request,HttpServletResponse response, Model model){
-		return("home");
+	public String execute(@ModelAttribute DeckHomeForm DeckHomeFrom,HttpServletRequest request,HttpServletResponse response, Model model){
+		return("deckEdit");
 		
 	}
 	
