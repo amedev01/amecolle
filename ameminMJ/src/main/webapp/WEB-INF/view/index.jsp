@@ -12,6 +12,11 @@
 	</head> 
 	<body>
 	<h2>Hello!! This is Amemin Collection!! </h2>
+	<form action="home" method="post">
+		<input type="text" name="userId" value="">
+		<input type="password" name="password" />
+		<input type="submit" value="ログイン">
+	</form>
 		<c:url value="/home" var="messageUrl" />
 		<a href="${messageUrl}">Let's Play!!</a>
 	</body>
