@@ -6,8 +6,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<f:view>
-
-</f:view>
+	<h2>アカウント作成</h2>
 </body>
 </html>
