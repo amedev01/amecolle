@@ -11,6 +11,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-this is your home.
+	<h2>This is your home.</h2>
+		<c:url value="/battlehome" var="messageUrl" />
+		<a href="${messageUrl}">Let's Battle!!</a>
 </body>
 </html>
