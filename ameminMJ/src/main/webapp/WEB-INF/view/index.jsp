@@ -12,7 +12,7 @@
 	</head> 
 	<body>
 	<h2>Hello!! This is Amemin Collection!! </h2>
-		<c:url value="/play" var="messageUrl" />
+		<c:url value="/home" var="messageUrl" />
 		<a href="${messageUrl}">Let's Play!!</a>
 	</body>
 </html>
