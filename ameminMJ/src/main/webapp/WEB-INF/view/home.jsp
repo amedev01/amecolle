@@ -1,18 +1,34 @@
+<!DOCTYPE html>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-    
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="utf-8">
+<title>AmeminCollection!!</title>
 </head>
 <body>
-	<h2>This is your home.</h2>
-		<c:url value="/battlehome" var="messageUrl" />
-		<a href="${messageUrl}">Let's Battle!!</a>
+	<h2>Amemin Collection Home</h2>
+
+	<!-- アカウント編集画面へのリンク -->
+	<form action="AccountEdit" method="post">
+		<input type="submit" value="アカウント">
+	</form>
+	<!-- デッキ編集画面へのリンク -->
+	<form action="DeckHome" method="post">
+		<input type="submit" value="デッキ">
+	</form>
+	<!-- バトル画面へのリンク -->
+	<form action="BattleHome" method="post">
+		<input type="submit" value="バトル">
+	</form>
+	<!-- ガチャ画面へのリンク -->
+	<form action="GachaHome" method="post">
+		<input type="submit" value="ガチャ">
+	</form>
 </body>
 </html>
