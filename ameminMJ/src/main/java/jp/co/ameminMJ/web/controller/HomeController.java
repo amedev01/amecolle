@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import jp.co.ameminMJ.web.form.LoginForm;
+import jp.co.ameminMJ.web.form.SignUpForm;
 
 @Controller
 public class HomeController {
@@ -21,5 +22,10 @@ public class HomeController {
 		
 	}
 	
+	@RequestMapping("/signUp")
+	public String execute(@ModelAttribute SignUpForm SignUpForm,HttpServletRequest request,HttpServletResponse response, Model model){
+		return("signUp");
+		
+	}
 
 }

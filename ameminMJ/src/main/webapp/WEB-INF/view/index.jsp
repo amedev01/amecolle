@@ -17,7 +17,11 @@
 		<input type="password" name="password" />
 		<input type="submit" value="ログイン">
 	</form>
-		<c:url value="/home" var="messageUrl" />
-		<a href="${messageUrl}">Let's Play!!</a>
+	
+	<h2>アカウントを所持していない方</h2>
+	<form action="signUp" method="post">
+		<input type="submit" value="アカウント作成ページへ">
+	</form>
+
 	</body>
 </html>
