@@ -12,7 +12,7 @@ import jp.co.ameminMJ.web.form.LoginForm;
 import jp.co.ameminMJ.web.form.SignUpForm;
 
 @Controller
-public class HomeController {
+public class LoginController {
 
 	
 	
