@@ -8,7 +8,7 @@
 <body>
 	<h2>アカウント作成</h2>
 	<h4>新規IDとパスワードを入力してください。</h4>
-	<form action="logIn" method="post">
+	<form action="login" method="post">
 		<input type="text" name="userId" value="">
 		<input type="password" name="password" />
 		<input type="submit" value="アカウント作成">

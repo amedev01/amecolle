@@ -16,9 +16,9 @@ public class SignUpController {
 
 	
 	
-	@RequestMapping("/logIn")
+	@RequestMapping("/login")
 	public String execute(@ModelAttribute HomeForm HomeForm,HttpServletRequest request,HttpServletResponse response, Model model){
-		return("index");
+		return("login");
 		
 	}
 }
