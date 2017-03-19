@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import jp.co.ameminMJ.web.form.AdminHomeForm;
 import jp.co.ameminMJ.web.form.LoginForm;
 import jp.co.ameminMJ.web.form.SignUpForm;
 
@@ -28,4 +29,10 @@ public class LoginController {
 		
 	}
 
+	@RequestMapping("/adminHome")
+	public String execute(@ModelAttribute AdminHomeForm AdminHomeForm,HttpServletRequest request,HttpServletResponse response, Model model){
+		return("adminHome");
+		
+	}
+	
 }

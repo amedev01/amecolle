@@ -23,5 +23,12 @@
 		<input type="submit" value="アカウント作成ページへ">
 	</form>
 
+	<h3>管理者ページ</h3>
+	<form action="adminHome" method="post">
+		<input type="text" name="userId" value="">
+		<input type="password" name="password" />
+		<input type="submit" value="ログイン">
+	</form>
+
 </body>
 </html>
