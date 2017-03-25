@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import jp.co.ameminMJ.web.form.DeckEditForm;
 import jp.co.ameminMJ.web.form.DeckHomeForm;
 
 @Controller
@@ -15,8 +16,8 @@ public class DeckHomeController {
 
 	
 	
-	@RequestMapping("/deckHome")
-	public String execute(@ModelAttribute DeckHomeForm deckHomeFrom,HttpServletRequest request,HttpServletResponse response, Model model){
+	@RequestMapping("/deckEdit")
+	public String execute(@ModelAttribute DeckEditForm deckEditForm,HttpServletRequest request,HttpServletResponse response, Model model){
 		return("deckEdit");
 		
 	}
