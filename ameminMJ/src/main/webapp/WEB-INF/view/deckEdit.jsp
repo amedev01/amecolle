@@ -9,7 +9,7 @@
 	</head> 
 	<body>
 	<h2>デッキ編集画面やで</h2>
-	<form action="deckEdit" method="post">
+	<form action="Home" method="post">
 		<input type="submit">
 	</form>
 	</body>

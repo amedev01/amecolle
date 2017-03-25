@@ -17,7 +17,7 @@ public class DeckHomeController {
 	
 	
 	@RequestMapping("/deckEdit")
-	public String execute(@ModelAttribute DeckEditForm deckEditForm,HttpServletRequest request,HttpServletResponse response, Model model){
+	public String execute(@ModelAttribute DeckHomeForm deckHomeForm,HttpServletRequest request,HttpServletResponse response, Model model){
 		return("deckEdit");
 		
 	}
