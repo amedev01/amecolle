@@ -11,5 +11,9 @@
 	<form action="adminDetail" method="post">
 		<input type="submit" value="編集(仮)">
 	</form>
+	<form action="adminHome" method="post">
+		<input type="submit" value="戻る">
+	</form>
+	
 </body>
 </html>
