@@ -10,7 +10,7 @@
 		<meta charset="utf-8">
 		<title>AmeminCollection!!</title>
 	</head> 
-	<body background="${pageContext.request.contextPath}/background.jpg">
+	<body background="${pageContext.request.contextPath}/background/background.jpg">
 	<h2>Hello!! This is Amemin Collection!! </h2>
 	<form action="home" method="post">
 		<input type="text" name="userId" value="">
