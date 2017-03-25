@@ -8,7 +8,7 @@
 
     <!-- Uncomment and your base-package here:-->
          <context:component-scan
-            base-package="jp.co.ameminMJ.web"/>  
+            base-package="jp.co.amedev.amecolle"/>  
 
 
     <mvc:annotation-driven />
