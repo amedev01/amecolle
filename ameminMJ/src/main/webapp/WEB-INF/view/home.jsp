@@ -15,19 +15,19 @@
 	<h2>Amemin Collection Home</h2>
 
 	<!-- アカウント編集画面へのリンク -->
-	<form action="AccountEdit" method="post">
+	<form action="accountEdit" method="post">
 		<input type="submit" value="アカウント">
 	</form>
 	<!-- デッキ編集画面へのリンク -->
-	<form action="DeckHome" method="post">
+	<form action="deckHome" method="post">
 		<input type="submit" value="デッキ">
 	</form>
 	<!-- バトル画面へのリンク -->
-	<form action="BattleHome" method="post">
+	<form action="battleHome" method="post">
 		<input type="submit" value="バトル">
 	</form>
 	<!-- ガチャ画面へのリンク -->
-	<form action="GachaHome" method="post">
+	<form action="gachaHome" method="post">
 		<input type="submit" value="ガチャ">
 	</form>
 </body>

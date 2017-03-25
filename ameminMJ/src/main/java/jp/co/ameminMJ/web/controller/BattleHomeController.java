@@ -8,15 +8,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import jp.co.ameminMJ.web.form.DeckEditForm;
+import jp.co.ameminMJ.web.form.BattleResultForm;
 
 @Controller
-public class DeckHomeController {
-	@RequestMapping("/deckEdit")
-	public String execute(@ModelAttribute DeckEditForm deckEditForm,HttpServletRequest request,HttpServletResponse response, Model model){
-		return("deckEdit");
-		
-	}
-	
+public class BattleHomeController {
 
+	
+	
+	@RequestMapping("/battleResult")
+	public String execute(@ModelAttribute BattleResultForm battleResultForm,HttpServletRequest request,HttpServletResponse response, Model model){
+		return("battleResult");		
+	}
 }

@@ -1,4 +1,5 @@
 package jp.co.ameminMJ.web.form;
 
-public class BattleHomeForm {
+public class DeckResultForm {
+
 }

@@ -8,7 +8,6 @@
 		<title>AmeminCollection!!</title>
 	</head> 
 	<body>
-	<h2>デッキ編集画面やで</h2>
-	
+	<h2>バトル結果画面</h2>
 	</body>
 </html>

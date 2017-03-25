@@ -8,7 +8,9 @@
 		<title>AmeminCollection!!</title>
 	</head> 
 	<body>
-	<h2>デッキ編集画面やで</h2>
-	
+	<h2>ガチャホーム画面</h2>
+	<form action="gachaResult" method="post">
+		<input type="submit">
+	</form>
 	</body>
 </html>
