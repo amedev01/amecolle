@@ -8,7 +8,7 @@
 		<title>AmeminCollection!!</title>
 	</head> 
 	<body>
-	<h2>デッキホーム画面やで</h2>
+	<h2>デッキ編集画面やで</h2>
 	<form action="deckEdit" method="post">
 		<input type="submit">
 	</form>
