@@ -7,10 +7,9 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <html>
-<head>
 <meta charset="utf-8">
 <title>AmeminCollection!!</title>
-</head>
+<jsp:include page="../header/header.jsp" flush="true" />
 <body>
 	<h2>Amemin Collection Home</h2>
 
