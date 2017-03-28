@@ -8,15 +8,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import jp.co.amedev.amecolle.web.form.GachaHomeForm;
 import jp.co.amedev.amecolle.web.form.GachaResultForm;
 
 @Controller
 public class GachaHomeController {
 
-	@RequestMapping("/gachaResult")
-	public String execute(@ModelAttribute GachaResultForm GachaResultForm,HttpServletRequest request,HttpServletResponse response, Model model){
-		return("gachaResult");
-		
+	@RequestMapping("/gachaHome")
+	public String execute(@ModelAttribute GachaHomeForm GachaHomeForm,HttpServletRequest request,HttpServletResponse response, Model model){
+		return("gachaHome");	
 	}
 	
 }

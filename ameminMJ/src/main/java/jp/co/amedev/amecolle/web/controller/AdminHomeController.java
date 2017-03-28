@@ -9,16 +9,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import jp.co.amedev.amecolle.web.form.AdminDetailForm;
+import jp.co.amedev.amecolle.web.form.AdminHomeForm;
 
 
 @Controller
 public class AdminHomeController {
 
 	
-	
-	@RequestMapping("/adminDetail")
-	public String execute(@ModelAttribute AdminDetailForm AdminDetailForm,HttpServletRequest request,HttpServletResponse response, Model model){
-		return("adminDetail");
+	@RequestMapping("/adminHome")
+	public String execute(@ModelAttribute AdminHomeForm AdminHomeForm,HttpServletRequest request,HttpServletResponse response, Model model){
+		return("adminHome");
 		
 	}
+	
 }

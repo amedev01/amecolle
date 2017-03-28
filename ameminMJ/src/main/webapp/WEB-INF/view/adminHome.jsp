@@ -8,7 +8,7 @@
 <body>
 	<h2>管理者ページ</h2>
 	<h4>詳細管理ページ</h4>
-	<form action="adminDetail" method="post">
+	<form action="accountDetail" method="post">
 		<input type="submit" value="詳細管理ページ">
 	</form>
 </body>

@@ -40,7 +40,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
     @Override
     protected Filter[] getServletFilters() {
         DelegatingFilterProxy securityFilterChain = new DelegatingFilterProxy("springSecurityFilterChain");
-        return new Filter[] {/*securityFilterChain*/};
+        return new Filter[] {securityFilterChain};
     }
 
     @Override

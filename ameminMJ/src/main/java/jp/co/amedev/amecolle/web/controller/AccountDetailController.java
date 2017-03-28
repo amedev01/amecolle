@@ -8,13 +8,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import jp.co.amedev.amecolle.web.form.DeckEditForm;
+import jp.co.amedev.amecolle.web.form.AdminDetailForm;
 
 @Controller
-public class DeckEditController {
-	@RequestMapping("/deckEdit")
-	public String execute(@ModelAttribute DeckEditForm deckEditForm,HttpServletRequest request,HttpServletResponse response, Model model){
-		return("deckEdit");
+public class AccountDetailController {
+	
+	@RequestMapping("/accountDetail")
+	public String execute(@ModelAttribute AdminDetailForm AdminDetailForm,HttpServletRequest request,HttpServletResponse response, Model model){
+		return("accountDetail");
 		
 	}
+
 }

@@ -12,24 +12,14 @@ import jp.co.amedev.amecolle.web.form.AccountEditForm;
 import jp.co.amedev.amecolle.web.form.BattleHomeForm;
 import jp.co.amedev.amecolle.web.form.DeckHomeForm;
 import jp.co.amedev.amecolle.web.form.GachaHomeForm;
+import jp.co.amedev.amecolle.web.form.LoginForm;
 
 @Controller
 public class HomeController {
-	@RequestMapping("/accountEdit")
-	public String execute(@ModelAttribute AccountEditForm accountEditForm,HttpServletRequest request,HttpServletResponse response, Model model){
-		return("accountEdit");
-	}
-	@RequestMapping("/deckHome")
-	public String execute(@ModelAttribute DeckHomeForm DeckHomeForm,HttpServletRequest request,HttpServletResponse response, Model model){
-		return("deckHome");
-	}
-	@RequestMapping("/battleHome")
-	public String execute(@ModelAttribute BattleHomeForm BattleHomeForm,HttpServletRequest request,HttpServletResponse response, Model model){
-		return("battleHome");	
-	}
-	@RequestMapping("/gachaHome")
-	public String execute(@ModelAttribute GachaHomeForm GachaHomeForm,HttpServletRequest request,HttpServletResponse response, Model model){
-		return("gachaHome");	
+
+	@RequestMapping("/home")
+	public String execute(@ModelAttribute LoginForm loginForm,HttpServletRequest request,HttpServletResponse response, Model model){
+		return("home");
 	}
 	
 }

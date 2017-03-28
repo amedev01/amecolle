@@ -8,7 +8,7 @@
 <body>
 	<h2>詳細管理ページ</h2>
  	<h4>編集(仮)</h4>
-	<form action="adminDetail" method="post">
+	<form action="accountEdit" method="post">
 		<input type="submit" value="編集(仮)">
 	</form>
 	<form action="adminHome" method="post">

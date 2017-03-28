@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import jp.co.amedev.amecolle.web.form.DeckEditForm;
+import jp.co.amedev.amecolle.web.form.DeckHomeForm;
 
 @Controller
 public class DeckHomeController {
-	@RequestMapping("/deckEdit")
-	public String execute(@ModelAttribute DeckEditForm deckEditForm,HttpServletRequest request,HttpServletResponse response, Model model){
-		return("deckEdit");
-		
+	@RequestMapping("/deckHome")
+	public String execute(@ModelAttribute DeckHomeForm DeckHomeForm,HttpServletRequest request,HttpServletResponse response, Model model){
+		return("deckHome");
 	}
 	
 
