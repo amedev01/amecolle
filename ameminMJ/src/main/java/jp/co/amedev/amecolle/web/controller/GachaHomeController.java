@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import jp.co.amedev.amecolle.web.form.GachaHomeForm;
 import jp.co.amedev.amecolle.web.form.GachaResultForm;
 
+/**
+ * 
+ * @author hiwatashi
+ *
+ */
 @Controller
 public class GachaHomeController {
 

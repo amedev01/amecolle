@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import jp.co.amedev.amecolle.web.form.BattleHomeForm;
 import jp.co.amedev.amecolle.web.form.BattleResultForm;
 
+/**
+ * 
+ * @author oguma
+ *
+ */
 @Controller
 public class BattleHomeController {
 

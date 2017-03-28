@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import jp.co.amedev.amecolle.web.form.BattleResultForm;
 
+/**
+ * 
+ * @author oguma
+ *
+ */
 @Controller
 public class BattleResultController {
 	@RequestMapping("/battleResult")
