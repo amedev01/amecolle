@@ -28,8 +28,8 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
 	private static final String MESSAGE_SOURCE = "classpath:messageResources";
 	private static final String VIEWS = "/WEB-INF/view/";
 
-	private static final String RESOURCE_LOCATION = "/WEB-INF/image/";
-	private static final String RESOURCE_HANDLER = RESOURCE_LOCATION + "background/**";
+	private static final String RESOURCE_LOCATION = "/WEB-INF/resources/";
+	private static final String RESOURCE_HANDLER = "/resources/**";
 
 
 //	@Override

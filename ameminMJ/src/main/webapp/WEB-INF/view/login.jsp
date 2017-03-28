@@ -11,8 +11,7 @@
 		<meta charset="utf-8">
 		<title>AmeminCollection!!</title>
 	</head> 
-	<body background="${pageContext.request.contextPath}/background/background.jpg">
-	<img alt="" src="${pageContext.request.contextPath}/background/background.jpg">
+	<body background="${pageContext.request.contextPath}/resources/image/background/background.jpg">
 	<h2>Hello!! This is Amemin Collection!! </h2>
 <%-- 	<form:form action="authenticate" method="post"> --%>
 	<form:form action="home" method="post">
