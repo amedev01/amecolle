@@ -9,7 +9,11 @@ public class WelcomeController {
 
 	@RequestMapping("/")
 	public String execute(Model model){
-		
+		return("home");
+	}
+	
+	@RequestMapping("/login")
+	public String execute2(Model model){
 		return("login");
 	}
 }

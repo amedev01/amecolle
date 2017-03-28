@@ -67,6 +67,39 @@
 			<artifactId>spring-tx</artifactId>
 		</dependency>
 
+		<!-- mysql -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+		</dependency>
+        <!-- Persistence -->
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <!-- Avoid issue #72 Could not initialize class org.thymeleaf.templateresolver.ServletContextTemplateResolver due to 'validation is not supported' -->
+            <exclusions>
+                <exclusion>
+                    <artifactId>pull-parser</artifactId>
+                    <groupId>pull-parser</groupId>
+                </exclusion>
+                <exclusion>
+                	<artifactId>xml-apis</artifactId>
+                	<groupId>xml-apis</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 		<!-- Logging with SLF4J & LogBack -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
