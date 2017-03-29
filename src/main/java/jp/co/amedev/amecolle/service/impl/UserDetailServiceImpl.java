@@ -1,4 +1,4 @@
-package jp.co.amedev.amecolle.config.security;
+package jp.co.amedev.amecolle.service.impl;
 
 
 import java.util.Collection;

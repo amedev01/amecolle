@@ -15,18 +15,18 @@
 	<!-- アカウント編集画面へのリンク -->
 	<form:form action="accountEdit" method="post">
 		<input type="submit" value="アカウント">
-	</form:form> >
+	</form:form>
 	<!-- デッキ編集画面へのリンク -->
 	<form:form action="deckHome" method="post">
 		<input type="submit" value="デッキ">
-	</form:form> >
+	</form:form>
 	<!-- バトル画面へのリンク -->
 	<form:form action="battleHome" method="post">
 		<input type="submit" value="バトル">
-	</form:form> >
+	</form:form>
 	<!-- ガチャ画面へのリンク -->
 	<form:form action="gachaHome" method="post">
 		<input type="submit" value="ガチャ">
-	</form:form> >
+	</form:form>
 </body>
 </html>

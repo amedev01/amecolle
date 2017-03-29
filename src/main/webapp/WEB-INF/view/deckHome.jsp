@@ -10,6 +10,6 @@
 	<h2>デッキホーム画面やで</h2>
 	<form:form action="deckEdit" method="post">
 		<input type="submit">
-	</form:form> >
+	</form:form>
 	</body>
 </html>

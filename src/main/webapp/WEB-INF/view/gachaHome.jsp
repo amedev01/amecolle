@@ -10,6 +10,6 @@
 	<h2>ガチャホーム画面</h2>
 	<form:form action="gachaResult" method="post">
 		<input type="submit">
-	</form:form> >
+	</form:form>
 	</body>
 </html>

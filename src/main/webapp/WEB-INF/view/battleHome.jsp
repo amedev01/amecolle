@@ -10,6 +10,6 @@
 	<h2>バトルホーム画面</h2>
 	<form:form action="battleResult" method="post">
 		<input type="submit">
-	</form:form> >
+	</form:form>
 	</body>
 </html>

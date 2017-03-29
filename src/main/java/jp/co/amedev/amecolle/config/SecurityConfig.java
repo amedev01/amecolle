@@ -33,15 +33,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
             .eraseCredentials(true)
-            .userDetailsService(userDetailsService);
-//            .passwordEncoder(passwordEncoder());
+            .userDetailsService(userDetailsService)
+            .passwordEncoder(passwordEncoder());
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
             .authorizeRequests()
-                .antMatchers("/resources/**", "/css/**", "/login", "/logout", "/signUp", "/timeout").permitAll()
+                .antMatchers("/resources/**", "/css/**", "/login", "/logout", "/signUp/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
             .formLogin()

@@ -10,6 +10,6 @@
 	<h4>詳細管理ページ</h4>
 	<form:form action="accountDetail" method="post">
 		<input type="submit" value="詳細管理ページ">
-	</form:form> >
+	</form:form>
 </body>
 </html>
