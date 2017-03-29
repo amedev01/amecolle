@@ -1,7 +1,7 @@
-/build/
 /target/
+/.settings/
 /.classpath
 /.project
-/pom.xml
-/WebContent/
-/.settings/
+/.springBeans
+/bin/
+/build/
