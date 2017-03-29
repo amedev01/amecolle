@@ -10,6 +10,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
+import jp.co.amedev.amecolle.constant.AmecolleConst;
+
 public class CustomSuccessHandler implements AuthenticationSuccessHandler {
 
 	@Override
@@ -21,8 +23,8 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
 		}
 		
 		switch(roleId.toString()){
-		case "0" : response.sendRedirect(request.getContextPath() + "/home");break;
-		case "1" : response.sendRedirect(request.getContextPath() + "/adminHome");break;
+		case AmecolleConst.ROLE_USER : response.sendRedirect(request.getContextPath() + "/home");break;
+		case AmecolleConst.ROLE_ADMIN : response.sendRedirect(request.getContextPath() + "/adminHome");break;
 		default : throw new RuntimeException();
 		}
 	}
