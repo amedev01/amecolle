@@ -6,13 +6,13 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import jp.co.amedev.amecolle.web.form.AdminDetailForm;
 
 @Controller
 public class AccountEditController {
-	@RequestMapping("/accountEdit")
+	@PostMapping("/accountEdit")
 	public String execute(@ModelAttribute AdminDetailForm AdminDetailForm,HttpServletRequest request,HttpServletResponse response, Model model){
 		return("accountEdit");
 		

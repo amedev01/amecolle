@@ -1,5 +1,7 @@
 package jp.co.amedev.amecolle.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
@@ -26,12 +28,6 @@ public class UserDetailServiceImpl implements UserDetailsService {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
-	@Transactional
-	public UserEntity save(UserEntity account) {
-		account.setPassword(passwordEncoder.encode(account.getPassword()));
-		userRepository.save(account);
-		return account;
-	}
 
 	@Override
 	public User loadUserByUsername(String userId) throws UsernameNotFoundException {
@@ -48,6 +44,24 @@ public class UserDetailServiceImpl implements UserDetailsService {
 		}
 	}
 
+	@Transactional
+	public UserEntity save(UserEntity account) {
+		account.setPassword(passwordEncoder.encode(account.getPassword()));
+		userRepository.save(account);
+		return account;
+	}
+	
+	@Transactional
+	public List<UserEntity> findAll() {
+		List<UserEntity> userList = userRepository.findAll();
+		return userList;
+	}
+	
+	@Transactional
+	public void delete(Long id) {
+		userRepository.delete(id);
+	}
+	
 	private User createUser(UserEntity account) {
 		return new User(account.getUserId(), account.getPassword(), AuthorityUtils.createAuthorityList(account.getRoleId()));
 	}

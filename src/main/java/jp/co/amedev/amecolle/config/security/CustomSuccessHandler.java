@@ -20,6 +20,8 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
 		SimpleGrantedAuthority roleId = null;
 		if (!authentication.getAuthorities().isEmpty() && authentication.getAuthorities().toArray()[0] instanceof SimpleGrantedAuthority){
 			roleId = (SimpleGrantedAuthority)authentication.getAuthorities().toArray()[0];
+		} else {
+			throw new RuntimeException();
 		}
 		
 		switch(roleId.toString()){

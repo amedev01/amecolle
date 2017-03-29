@@ -5,8 +5,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/resources//css/login.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources//css/login.css">
 <title>AmeminCollection!!</title>
 </head>
 <body<%-- background="${pageContext.request.contextPath}/resources/image/background/background.jpg" 見にくいからコメントアウト--%>>
