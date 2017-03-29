@@ -24,20 +24,18 @@ public class UserEntity {
 	@Column(length = 50, nullable = false)
 	private String password;
 
-//	@Column(length = 10, nullable = false)
-//	private String role = "ROLE_USER";
+	@Column(length = 1, nullable = false, name="role_id")
+	private String roleId;
 	
+	public String getRoleId() {
+		return roleId;
+	}
 
-//	public String getRole() {
-//		return role;
-//	}
-//
-//	public void setRole(String role) {
-//		this.role = role;
-//	}
+	public void setRoleId(String roleId) {
+		this.roleId = roleId;
+	}
 
 	public UserEntity() {
-
 	}
 
 	public UserEntity(String userId,String password) {

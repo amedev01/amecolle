@@ -14,6 +14,23 @@ public class SignUpForm {
 	
 	@NotBlank
 	private String password;
+	
+	@NotBlank
+	private String roleId;
+	
+	/**
+	 * @return the roleId
+	 */
+	public String getRoleId() {
+		return roleId;
+	}
+
+	/**
+	 * @param roleId the roleId to set
+	 */
+	public void setRoleId(String roleId) {
+		this.roleId = roleId;
+	}
 
 	/**
 	 * @return the userId

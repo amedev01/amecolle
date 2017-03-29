@@ -48,15 +48,16 @@
 			</tr>
 		</form:form>
 
-		<tr><th class="borderless center"  colspan="2">Admin</th></tr>
-		<form:form action="adminHome" method="post">
-			<tr><th class="center">UserID</th><td colspan="2" ><input type="text" name="userId" value=""></td></tr>
-			<tr><th class="center">Password</th><td  colspan="2" ><input type="password" name="password" /></td></tr>
-			<tr>
-			<td align="center" class="borderless"></td>
-			<td class="borderless center"><input type="submit"  class="button center" value="login"></td>
-			</tr>
-		</form:form>
+<!-- ログイン時自動判別するため不要 -->
+<!-- 		<tr><th class="borderless center"  colspan="2">Admin</th></tr> -->
+<%-- 		<form:form action="adminHome" method="post"> --%>
+<!-- 			<tr><th class="center">UserID</th><td colspan="2" ><input type="text" name="userId" value=""></td></tr> -->
+<!-- 			<tr><th class="center">Password</th><td  colspan="2" ><input type="password" name="password" /></td></tr> -->
+<!-- 			<tr> -->
+<!-- 			<td align="center" class="borderless"></td> -->
+<!-- 			<td class="borderless center"><input type="submit"  class="button center" value="login"></td> -->
+<!-- 			</tr> -->
+<%-- 		</form:form> --%>
 	</table>
 
 </body>

@@ -14,6 +14,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.StandardPasswordEncoder;
 
+import jp.co.amedev.amecolle.config.security.CustomSuccessHandler;
+
 
 @Configuration
 @EnableWebSecurity
@@ -24,6 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsService userDetailsService;
 
+    
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new StandardPasswordEncoder();
@@ -48,7 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/login")
                 .permitAll()
                 .failureUrl("/login")
-                .defaultSuccessUrl("/home")
+                .successHandler(new CustomSuccessHandler())
                 .loginProcessingUrl("/authenticate").usernameParameter("userId").passwordParameter("password")
                 .and()
             .logout()
@@ -62,5 +65,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
-    
+
 }
+
+

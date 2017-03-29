@@ -1,13 +1,10 @@
 package jp.co.amedev.amecolle.service.impl;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.security.authentication.AuthenticationServiceException;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -28,14 +25,6 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-
-	private Collection<GrantedAuthority> getAuthorities(UserEntity user) {
-		// if(user.isAdmin()){
-		return AuthorityUtils.createAuthorityList("ROLE_USER", "ROLE_ADMIN");
-		// }else{
-		// return AuthorityUtils.createAuthorityList("ROLE_USER");
-		// }
-	}
 
 	@Transactional
 	public UserEntity save(UserEntity account) {
@@ -60,7 +49,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
 	}
 
 	private User createUser(UserEntity account) {
-		return new User(account.getUserId(), account.getPassword(), getAuthorities(account));
+		return new User(account.getUserId(), account.getPassword(), AuthorityUtils.createAuthorityList(account.getRoleId()));
 	}
 
 }
