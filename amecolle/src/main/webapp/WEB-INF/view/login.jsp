@@ -11,10 +11,10 @@
 		<meta charset="utf-8">
 		<title>AmeminCollection!!</title>
 	</head> 
-	<body <%-- background="${pageContext.request.contextPath}/resources/image/background/background.jpg" --%>>
+	<body background="${pageContext.request.contextPath}/resources/image/background/background.jpg">
 	<h2>Hello!! This is Amemin Collection!! </h2>
-	<form:form action="authenticate" method="post">
-<%-- 	<form:form action="home" method="post"> --%>
+<%-- 	<form:form action="authenticate" method="post"> --%>
+	<form:form action="home" method="post">
 		<input type="text" name="userId" value="">
 		<input type="password" name="password" />
 		<input type="submit" value="ログイン">
