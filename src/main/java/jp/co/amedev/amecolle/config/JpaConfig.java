@@ -23,6 +23,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @PropertySource("classpath:persistence.properties")
 public class JpaConfig {
 
+	private static final String ENTITY_PACKAGE = "jp.co.amedev.amecolle.repository.entity";
+	
     @Value("${dataSource.driverClassName}")
     private String driver;
     @Value("${dataSource.url}")
@@ -57,7 +59,7 @@ public class JpaConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() throws Exception{
     	LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
     	localContainerEntityManagerFactoryBean.setDataSource(dataSource);
-    	localContainerEntityManagerFactoryBean.setPackagesToScan("jp.co.amedev.amecolle.repository.entity");
+    	localContainerEntityManagerFactoryBean.setPackagesToScan(ENTITY_PACKAGE);
     	localContainerEntityManagerFactoryBean.setJpaVendorAdapter(jpaVendorAdapter());
     	return localContainerEntityManagerFactoryBean;
     }
