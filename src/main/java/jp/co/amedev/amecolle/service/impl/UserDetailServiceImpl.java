@@ -5,6 +5,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -53,7 +54,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
 			return createUser(account);
 		} catch (UsernameNotFoundException e){
 			throw new UsernameNotFoundException("user not found");
-		} catch (Exception e) {
+		} catch (JpaSystemException e) {
 			throw new AuthenticationServiceException("Database Connection not fournd");
 		}
 	}
