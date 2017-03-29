@@ -13,24 +13,24 @@
 	</head> 
 	<body background="${pageContext.request.contextPath}/resources/image/background/background.jpg">
 	<h2>Hello!! This is Amemin Collection!! </h2>
-<%-- 	<form:form action="authenticate" method="post"> --%>
-	<form:form action="home" method="post">
+	<form:form action="authenticate" method="post">
+<%-- 	<form:form action="home" method="post"> --%>
 		<input type="text" name="userId" value="">
 		<input type="password" name="password" />
 		<input type="submit" value="ログイン">
-	</form:form>
+	</form:form> :form>
 
 	<h2>アカウントを所持していない方</h2>
-	<form action="signUp" method="post">
+	<form:form action="signUp" method="post">
 		<input type="submit" value="アカウント作成ページへ">
-	</form>
+	</form:form> >
 
 	<h3>管理者ページ</h3>
-	<form action="adminHome" method="post">
+	<form:form action="adminHome" method="post">
 		<input type="text" name="userId" value="">
 		<input type="password" name="password" />
 		<input type="submit" value="ログイン">
-	</form>
+	</form:form> >
 
 </body>
 </html>

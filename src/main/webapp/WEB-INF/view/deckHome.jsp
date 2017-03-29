@@ -8,8 +8,8 @@
 <jsp:include page="../header/header.jsp" flush="true" />
 	<body>
 	<h2>デッキホーム画面やで</h2>
-	<form action="deckEdit" method="post">
+	<form:form action="deckEdit" method="post">
 		<input type="submit">
-	</form>
+	</form:form> >
 	</body>
 </html>

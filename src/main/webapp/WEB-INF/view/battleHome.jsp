@@ -8,8 +8,8 @@
 <jsp:include page="../header/header.jsp" flush="true" />
 	<body>
 	<h2>バトルホーム画面</h2>
-	<form action="battleResult" method="post">
+	<form:form action="battleResult" method="post">
 		<input type="submit">
-	</form>
+	</form:form> >
 	</body>
 </html>
