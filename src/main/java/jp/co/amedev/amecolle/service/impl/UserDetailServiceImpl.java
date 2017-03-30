@@ -56,7 +56,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
 		UserEntity user = userRepository.findOne(input.getId());
 		user.setUserId(input.getUserId());
 		if(input.getPassword() != null && !input.getPassword().equals("")){
-			user.setPassword(input.getPassword());
+			user.setPassword(passwordEncoder.encode(input.getPassword()));
 		}
 	}
 	
