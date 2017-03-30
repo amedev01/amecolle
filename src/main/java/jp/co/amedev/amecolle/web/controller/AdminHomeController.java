@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,13 +28,11 @@ public class AdminHomeController {
 	}
 	
 	@PostMapping("/adminHome/delete")
-	public String delete(@ModelAttribute AdminHomeForm AdminHomeForm,HttpServletRequest request,HttpServletResponse response, Model model){
-		try{
-			Integer.parseInt(AdminHomeForm.getId());
-		}catch(NumberFormatException e){
+	public String delete(@ModelAttribute AdminHomeForm AdminHomeForm, BindingResult result, HttpServletRequest request,HttpServletResponse response, Model model){
+		if(result.hasErrors()){
 			return  "redirect:/adminHome";
 		}
-		userDetailServiceImpl.delete((long)Integer.parseInt(AdminHomeForm.getId()));
+		userDetailServiceImpl.delete(AdminHomeForm.getId());
 		return "redirect:/adminHome";
 	}
 }
