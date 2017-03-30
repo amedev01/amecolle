@@ -16,7 +16,7 @@
  	<tr><th>Password</th><td><form:password path="password"/></td></tr>
  	<tr><th>Number of characters</th><td><c:out value="${cardNum}"/> 
  		<c:choose>
- 		<c:when test="${cardNum == '1'}" >
+ 		<c:when test="${cardNum <= 1}" >
  		character.	
  		</c:when>
  		<c:otherwise>
