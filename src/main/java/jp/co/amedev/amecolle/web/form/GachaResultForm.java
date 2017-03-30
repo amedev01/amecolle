@@ -1,5 +1,7 @@
 package jp.co.amedev.amecolle.web.form;
 
-public class GachaResultForm {
+import jp.co.amedev.amecolle.web.form.base.BaseForm;
+
+public class GachaResultForm extends BaseForm {
 
 }

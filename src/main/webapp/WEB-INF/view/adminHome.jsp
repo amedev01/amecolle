@@ -3,12 +3,14 @@
 	<head>
 		<meta charset="utf-8">
 		<title>AmeminCollection!!</title>
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources//css/main.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/main.css">
 	</head> 
 <body>
+	<form:form action="accountDetail" method="post">
+	<!-- 	ログアウト	 -->
+	<input type="submit" value="ログアウト"  class="button" formaction="logout">
 	<h1>AdminHome</h1>
 	
-	<form:form action="accountDetail" method="post">
 	<table>
 		<tr><th>No</th><th>UserId</th><th>Authority</th><th colspan="2">Edit</th></tr>
 	
@@ -23,8 +25,8 @@
 			<c:otherwise>不明</c:otherwise>
 			</c:choose>
 			</td>
-			<td width="10%"><input type="submit" value="詳細" formaction="accountDetail?id=<c:out value='${list.id}'/>"></td>
-			<td width="10%"><input type="submit" value="削除" formaction="adminHome/delete?id=<c:out value='${list.id}'/>"></td>
+			<td width="10%"><input type="submit" value="詳細" class="button" formaction="accountDetail?id=<c:out value='${list.id}'/>"></td>
+			<td width="10%"><input type="submit" value="削除"  class="button" formaction="accountEdit/delete?id=<c:out value='${list.id}'/>"></td>
 			</tr>
 		</c:forEach>
 	</table>

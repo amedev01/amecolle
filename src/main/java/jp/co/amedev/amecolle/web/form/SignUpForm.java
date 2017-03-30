@@ -2,12 +2,14 @@ package jp.co.amedev.amecolle.web.form;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import jp.co.amedev.amecolle.web.form.base.BaseForm;
+
 /**
  * 
  * @author m-zama
  *
  */
-public class SignUpForm {
+public class SignUpForm extends BaseForm {
 
 	@NotBlank
 	private String userId;

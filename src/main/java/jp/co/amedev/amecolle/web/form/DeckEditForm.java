@@ -1,5 +1,7 @@
 package jp.co.amedev.amecolle.web.form;
 
-public class DeckEditForm {
+import jp.co.amedev.amecolle.web.form.base.BaseForm;
+
+public class DeckEditForm extends BaseForm {
 
 }

@@ -52,6 +52,15 @@ public class UserDetailServiceImpl implements UserDetailsService {
 	}
 	
 	@Transactional
+	public void update(UserEntity input) {
+		UserEntity user = userRepository.findOne(input.getId());
+		user.setUserId(input.getUserId());
+		if(input.getPassword() != null && !input.getPassword().equals("")){
+			user.setPassword(input.getPassword());
+		}
+	}
+	
+	@Transactional
 	public List<UserEntity> findAll() {
 		List<UserEntity> userList = userRepository.findAll();
 		return userList;

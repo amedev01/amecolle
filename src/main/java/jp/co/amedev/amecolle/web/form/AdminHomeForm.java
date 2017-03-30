@@ -1,25 +1,9 @@
 package jp.co.amedev.amecolle.web.form;
 
-import org.hibernate.validator.constraints.NotBlank;
+import jp.co.amedev.amecolle.web.form.base.BaseForm;
 
-public class AdminHomeForm {
+public class AdminHomeForm extends BaseForm {
 
-	@NotBlank
-	private long id;
-
-	/**
-	 * @return the id
-	 */
-	public long getId() {
-		return id;
-	}
-
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(long id) {
-		this.id = id;
-	}
 
 
 }

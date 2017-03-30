@@ -1,5 +1,7 @@
 package jp.co.amedev.amecolle.web.form;
 
-public class HomeForm {
+import jp.co.amedev.amecolle.web.form.base.BaseForm;
+
+public class HomeForm extends BaseForm {
 
 }

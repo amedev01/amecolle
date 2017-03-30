@@ -1,5 +1,20 @@
 package jp.co.amedev.amecolle.web.form;
 
-public class AdminDetailForm {
+import org.hibernate.validator.constraints.NotBlank;
+
+import jp.co.amedev.amecolle.web.form.base.BaseForm;
+
+public class AdminDetailForm extends BaseForm {
+
+	@NotBlank	
+	private String userId;
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 
 }

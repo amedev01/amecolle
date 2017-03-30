@@ -1,4 +1,6 @@
 package jp.co.amedev.amecolle.web.form;
 
-public class BattleHomeForm {
+import jp.co.amedev.amecolle.web.form.base.BaseForm;
+
+public class BattleHomeForm extends BaseForm {
 }
