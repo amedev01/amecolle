@@ -19,8 +19,10 @@ public class CardServiceImpl implements CardService{
 	@Autowired
 	CardRepository cardRepository;
 	
-	public void save(CardEntity cardEntity){
-		
+	public void saveNew(long id){
+		CardEntity card = new CardEntity();
+		card.setId(id);
+		cardRepository.save(card);
 	}
 	
 	@Override

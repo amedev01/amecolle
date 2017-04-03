@@ -28,7 +28,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
-
+	
 	@Override
 	public User loadUserByUsername(String userId) throws UsernameNotFoundException {
 		try {
@@ -47,7 +47,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
 	@Transactional
 	public UserEntity save(UserEntity account) {
 		account.setPassword(passwordEncoder.encode(account.getPassword()));
-		userRepository.save(account);
+		account = userRepository.save(account);
 		return account;
 	}
 	

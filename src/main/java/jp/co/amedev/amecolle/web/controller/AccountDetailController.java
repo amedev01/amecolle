@@ -13,7 +13,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+import jp.co.amedev.amecolle.repository.CardRepository;
 import jp.co.amedev.amecolle.repository.MCardRepository;
 import jp.co.amedev.amecolle.repository.UserRepository;
 import jp.co.amedev.amecolle.repository.entity.MCardEntity;
@@ -21,6 +23,7 @@ import jp.co.amedev.amecolle.repository.entity.UserEntity;
 import jp.co.amedev.amecolle.service.CardService;
 import jp.co.amedev.amecolle.service.impl.UserDetailServiceImpl;
 import jp.co.amedev.amecolle.web.form.AdminDetailForm;
+import jp.co.amedev.amecolle.web.form.AdminHomeForm;
 
 @Controller
 public class AccountDetailController {
@@ -36,6 +39,9 @@ public class AccountDetailController {
 	
 	@Autowired
 	CardService cardService;
+	
+	@Autowired
+	CardRepository cardRepository;
 	
 	@PostMapping("/accountDetail")
 	public String execute(@ModelAttribute AdminDetailForm adminDetailForm,HttpServletRequest request,HttpServletResponse response, Model model)throws Exception{
@@ -58,11 +64,9 @@ public class AccountDetailController {
 		return("accountDetail");
 	}
 	
-	@PostMapping("/accountEdit/delete")
-	public String delete(@Validated @ModelAttribute AdminDetailForm adminDetailForm, BindingResult result, HttpServletRequest request,HttpServletResponse response, Model model){
-		if(result.hasErrors()){
-			return  "redirect:/adminHome";
-		}
+	@RequestMapping("/accountEdit/delete")
+	public String delete(@ModelAttribute AdminHomeForm adminDetailForm, BindingResult result, HttpServletRequest request,HttpServletResponse response, Model model){
+		cardRepository.delete(adminDetailForm.getId());
 		userDetailServiceImpl.delete(adminDetailForm.getId());
 		return "redirect:/adminHome";
 	}

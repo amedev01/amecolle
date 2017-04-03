@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import jp.co.amedev.amecolle.repository.entity.UserEntity;
+import jp.co.amedev.amecolle.service.CardService;
 import jp.co.amedev.amecolle.service.impl.UserDetailServiceImpl;
 import jp.co.amedev.amecolle.web.form.SignUpForm;
 
@@ -21,6 +22,9 @@ public class SignUpController {
 
 	@Autowired
 	UserDetailServiceImpl userDetailServiceImpl; 
+	
+	@Autowired
+	CardService cardService;
 	
 	@RequestMapping("/signUp")
 	public String init(@ModelAttribute SignUpForm signUpForm, HttpServletRequest request, HttpServletResponse response, Model model) {
@@ -35,7 +39,8 @@ public class SignUpController {
 		}
 		UserEntity userEntity = new UserEntity();
 		BeanUtils.copyProperties( userEntity,signUpForm);
-		userDetailServiceImpl.save(userEntity);
+		userEntity = userDetailServiceImpl.save(userEntity);
+		cardService.saveNew(userEntity.getId());
 		
 		return "redirect:/login";
 	}

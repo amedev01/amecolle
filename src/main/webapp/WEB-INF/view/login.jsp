@@ -47,7 +47,7 @@
 		<form:form action="authenticate" method="post">
       <div class="form-group has-feedback">
         <input type="text" name="userId" class="form-control" placeholder="UserId">
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
         <input type="password" name="password" class="form-control" placeholder="Password">
@@ -61,6 +61,7 @@
               <input type="checkbox"> Remember Me
             </label>
           </div>
+          </div>
         <!-- /.col -->
       </div>
       <div class="row">
@@ -72,7 +73,6 @@
         </div>
         <!-- /.col -->
       </div>
-         </div>
    
       </form:form>
 
