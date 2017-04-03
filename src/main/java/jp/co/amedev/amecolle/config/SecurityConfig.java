@@ -15,6 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.StandardPasswordEncoder;
 
 import jp.co.amedev.amecolle.config.security.CustomSuccessHandler;
+import jp.co.amedev.amecolle.constant.AmecolleConst;
 
 
 @Configuration
@@ -45,6 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
             .authorizeRequests()
                 .antMatchers("/resources/**", "/css/**", "/login", "/logout", "/signUp/**").permitAll()
+                .antMatchers("/admin/**").hasRole(AmecolleConst.ROLE_ADMIN)
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
