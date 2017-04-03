@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Amecolle! | Log in</title>
+  <title>Amecolle!! | Log in</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -31,11 +31,11 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <b>Amecolle! </b>
+    <b>Amecolle!! </b>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
+    <p class="login-box-msg">Sign in to start your session !</p>
 
 			<c:if test="${!empty SPRING_SECURITY_LAST_EXCEPTION }" >
 				<span style="color: red; font: bold"> <c:out
@@ -145,7 +145,6 @@
 <!-- 			</td> -->
 <!-- 			</tr> -->
 <%-- 		<form:form action="authenticate" method="post"> --%>
-<%-- 			<%-- 	<form:form action="home" method="post"> --%> --%>
 <!-- 			<tr> -->
 <!-- 				<th colspan="2" class="center">LoginForm</th> -->
 <!-- 			</tr> -->
