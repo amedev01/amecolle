@@ -64,8 +64,8 @@ public class AccountDetailController {
 		return("accountDetail");
 	}
 	
-	@RequestMapping("/accountEdit/delete")
-	public String delete(@ModelAttribute AdminHomeForm adminDetailForm, BindingResult result, HttpServletRequest request,HttpServletResponse response, Model model){
+	@PostMapping("/accountEdit/delete")
+	public String delete(@ModelAttribute AdminDetailForm adminDetailForm, BindingResult result, HttpServletRequest request,HttpServletResponse response, Model model){
 		cardRepository.delete(adminDetailForm.getId());
 		userDetailServiceImpl.delete(adminDetailForm.getId());
 		return "redirect:/adminHome";
