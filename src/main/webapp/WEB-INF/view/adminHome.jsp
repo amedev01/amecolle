@@ -83,7 +83,7 @@
                 <tfoot>
 			  		<tr>
 				  		<th>No</th>
-				  		<th>UserId</th>
+				  		<th>User ID</th>
 				  		<th>Authority</th>
 				  		<th>Login time</th>
 				  		<th colspan="2">Edit</th>

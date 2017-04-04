@@ -53,10 +53,10 @@
             <div class="box-body">
 	<form:form action="${pageContext.request.contextPath}/admin/accountDetail/update" method="post" modelAttribute="accountDetailForm">
 	<form:hidden path="id"/>
-	 	<table class="borderless">
-		 	<tr><th>UserID</th><td><form:input path="userId"/></td></tr>
-		 	<tr><th>Password</th><td><form:password path="password"/></td></tr>
-		 	<tr><th>Number of characters</th><td><c:out value="${cardNum}"/> 
+	 	<table class="table table-bordered table-striped">
+		 	<tr><th width="20%">UserID</th><td><form:input path="userId"/></td></tr>
+		 	<tr><th width="20%">Password</th><td><form:password path="password"/></td></tr>
+		 	<tr><th width="20%">Number of characters</th><td><c:out value="${cardNum}"/> 
 		 		<c:choose>
 			 		<c:when test="${cardNum <= 1}" >
 				 		character.	
@@ -67,21 +67,21 @@
 		 		</c:choose>
 		 	</td></tr>
 		 	<tr>
-		 		<th>Login time</th>
+		 		<th width="20%">Login time</th>
 		 		<td><fmt:formatDate value="${accountDetailForm.latestLoginTime}" pattern="yyyy/MM/dd HH:mm:ss" /></td>
 		 	</tr>
 		 	<tr>
-		 		<th>Update time</th>
+		 		<th width="20%">Update time</th>
 		 		<td><fmt:formatDate value="${accountDetailForm.updateTime}" pattern="yyyy/MM/dd HH:mm:ss" /></td>
 		 	</tr>
-			<tr><td class="borderless">
+			<tr><td class="borderless" colspan="2">
 				<input type="submit" formaction="${pageContext.request.contextPath}/admin/accountDetail/update" value="Edit" class="button">
 				<input type="submit" formaction="${pageContext.request.contextPath}/admin/accountDetail/delete" value="Delete" class="button">
 				<input type="submit" formaction="${pageContext.request.contextPath}/admin/home" value="Back" class="button">
 			</td></tr>
 			</table>
 			<hr>
-		<table>
+		<table class="table table-bordered table-striped">
 			<tr><th colspan="4">CardList</th></tr>
 				<tr>
 					<th>Rarity</th>
