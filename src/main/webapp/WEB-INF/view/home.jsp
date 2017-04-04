@@ -2,31 +2,82 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <html>
-<meta charset="utf-8">
-<title>AmeminCollection!!</title>
-<jsp:include page="../header/header.jsp" flush="true" />
-<body>
-	<h2>Amemin Collection Home</h2>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=11">
+  <title>Amecolle!! | Home</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <jsp:include page="../include/css.jsp"></jsp:include>
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
 
-	<!-- アカウント編集画面へのリンク -->
-	<form:form action="accountEdit" method="post">
-		<input type="submit" value="アカウント">
-	</form:form>
-	<!-- デッキ編集画面へのリンク -->
-	<form:form action="deckHome" method="post">
-		<input type="submit" value="デッキ">
-	</form:form>
-	<!-- バトル画面へのリンク -->
-	<form:form action="battleHome" method="post">
-		<input type="submit" value="バトル">
-	</form:form>
-	<!-- ガチャ画面へのリンク -->
-	<form:form action="gachaHome" method="post">
-		<input type="submit" value="ガチャ">
-	</form:form>
+<sec:authentication property="principal.username" var="userId" />
+
+
+  <header class="main-header">
+	<jsp:include page="../include/header.jsp"></jsp:include>
+  </header>
+
+  <aside class="main-sidebar">
+	<jsp:include page="../include/sidebar.jsp"></jsp:include>
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Home
+        <small>Your Performance</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="${pageContext.request.contextPath}/admin/home"><i class="fa fa-dashboard"></i>Home</a></li>
+<!--         <li><a href="#">Your Performance</a></li> -->
+<!--         <li class="active">Data tables</li> -->
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+
+          <!-- /.box -->
+
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Information</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+            
+            
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+	<jsp:include page="../include/footer.jsp"></jsp:include>
+  </footer>
+
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+
+<jsp:include page="../include/script.jsp"></jsp:include>
 </body>
 </html>

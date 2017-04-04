@@ -42,6 +42,12 @@ public class AccountDetailController {
 	@Autowired
 	CardRepository cardRepository;
 	
+	@PostMapping("accountDetail")
+	public String display(@ModelAttribute AccountDetailForm accountDetailForm,HttpServletRequest request,HttpServletResponse response, Model model)throws Exception{
+		init(model, accountDetailForm);
+		return("accountDetail");
+	}
+	
 	@PostMapping("admin/accountDetail")
 	public String execute(@ModelAttribute AccountDetailForm accountDetailForm,HttpServletRequest request,HttpServletResponse response, Model model)throws Exception{
 		init(model, accountDetailForm);
