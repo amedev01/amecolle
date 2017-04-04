@@ -66,6 +66,14 @@
 			 		</c:otherwise>
 		 		</c:choose>
 		 	</td></tr>
+		 	<tr>
+		 		<th>Login time</th>
+		 		<td><fmt:formatDate value="${accountDetailForm.latestLoginTime}" pattern="yyyy/MM/dd HH:mm:ss" /></td>
+		 	</tr>
+		 	<tr>
+		 		<th>Update time</th>
+		 		<td><fmt:formatDate value="${accountDetailForm.updateTime}" pattern="yyyy/MM/dd HH:mm:ss" /></td>
+		 	</tr>
 			<tr><td class="borderless">
 				<input type="submit" formaction="${pageContext.request.contextPath}/admin/accountDetail/update" value="Edit" class="button">
 				<input type="submit" formaction="${pageContext.request.contextPath}/admin/accountDetail/delete" value="Delete" class="button">

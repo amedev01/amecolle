@@ -52,7 +52,13 @@
   	<form:form action="${pageContext.request.contextPath}/admin/accountDetail" method="post">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
-  		<tr><th>No</th><th>UserId</th><th>Authority</th><th colspan="2">Edit</th></tr>
+			  		<tr>
+				  		<th>No</th>
+				  		<th>User ID</th>
+				  		<th>Authority</th>
+				  		<th>Login time</th>
+				  		<th colspan="2">Edit</th>
+			  		</tr>
                 </thead>
                 <tbody>
 	
@@ -67,6 +73,7 @@
 			<c:otherwise>不明</c:otherwise>
 			</c:choose>
 			</td>
+			<td width="20%"><fmt:formatDate value="${list.latestLoginTime}" pattern="yyyy/MM/dd HH:mm:ss" /></td>
 			<td width="10%"><input type="submit" value="Detail" class="btn btn-primary btn-block btn-flat" formaction="${pageContext.request.contextPath}/admin/accountDetail?id=<c:out value='${list.id}'/>"></td>
 			<td width="10%"><input type="submit" value="Delete"  class="btn btn-primary btn-block btn-flat" formaction="${pageContext.request.contextPath}/admin/accountDetail/delete?id=<c:out value='${list.id}'/>"></td>
 			</tr>
@@ -74,7 +81,13 @@
   
                 </tbody>
                 <tfoot>
-  		<tr><th>No</th><th>UserId</th><th>Authority</th><th colspan="2">Edit</th></tr>
+			  		<tr>
+				  		<th>No</th>
+				  		<th>UserId</th>
+				  		<th>Authority</th>
+				  		<th>Login time</th>
+				  		<th colspan="2">Edit</th>
+			  		</tr>
                 </tfoot>
               </table>
 	</form:form>

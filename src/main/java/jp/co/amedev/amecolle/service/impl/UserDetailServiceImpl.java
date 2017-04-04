@@ -1,5 +1,6 @@
 package jp.co.amedev.amecolle.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,11 +34,12 @@ public class UserDetailServiceImpl implements UserDetailsService {
 	@Override
 	public User loadUserByUsername(String userId) throws UsernameNotFoundException {
 		try {
-			UserEntity account = userRepository.findOneByUserId(userId);
-			if (account == null) {
+			UserEntity user = userRepository.findOneByUserId(userId);
+			if (user == null) {
 				throw new UsernameNotFoundException("user not found");
 			}
-			return createUser(account);
+			this.login(user);
+			return createUser(user);
 		} catch (UsernameNotFoundException e){
 			throw new UsernameNotFoundException("user not found");
 		} catch (JpaSystemException e) {
@@ -46,10 +48,12 @@ public class UserDetailServiceImpl implements UserDetailsService {
 	}
 
 	@Transactional
-	public UserEntity save(UserEntity account) {
-		account.setPassword(passwordEncoder.encode(account.getPassword()));
-		account = userRepository.save(account);
-		return account;
+	public UserEntity save(UserEntity user) {
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
+		user.setUpdateTime(new Date());;
+		user.setDeleteFlag(AmecolleConst.DELETE_FLAG_OFF);
+		user = userRepository.save(user);
+		return user;
 	}
 	
 	@Transactional
@@ -59,17 +63,27 @@ public class UserDetailServiceImpl implements UserDetailsService {
 		if(input.getPassword() != null && !input.getPassword().equals("")){
 			user.setPassword(passwordEncoder.encode(input.getPassword()));
 		}
+		user.setUpdateTime(new Date());
+	}
+	
+	@Transactional
+	public void login(UserEntity input) {
+		UserEntity user = userRepository.findOne(input.getId());
+		user.setLatestLoginTime(new Date());
+		userRepository.save(user);
 	}
 	
 	@Transactional
 	public List<UserEntity> findAll() {
-		List<UserEntity> userList = userRepository.findAll();
+		List<UserEntity> userList = userRepository.findByDeleteFlag(AmecolleConst.DELETE_FLAG_OFF);
 		return userList;
 	}
 	
 	@Transactional
 	public void delete(Long id) {
-		userRepository.delete(id);
+		UserEntity user = userRepository.findOne(id);
+		user.setDeleteFlag(AmecolleConst.DELETE_FLAG_ON);
+		user.setUpdateTime(new Date());
 	}
 	
 	private User createUser(UserEntity account) {

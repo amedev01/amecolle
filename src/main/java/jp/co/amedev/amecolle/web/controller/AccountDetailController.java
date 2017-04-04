@@ -1,5 +1,6 @@
 package jp.co.amedev.amecolle.web.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -55,7 +56,7 @@ public class AccountDetailController {
 			return  "accountDetail";
 		}
 		UserEntity user = new UserEntity();
-		BeanUtils.copyProperties(user, accountDetailForm);
+		copyPropertiesForUpdate(accountDetailForm, user);
 		userDetailServiceImpl.update(user);
 		
 		init(model, accountDetailForm);
@@ -64,7 +65,6 @@ public class AccountDetailController {
 	
 	@PostMapping("admin/accountDetail/delete")
 	public String delete(@ModelAttribute AccountDetailForm accountDetailForm, BindingResult result, HttpServletRequest request,HttpServletResponse response, Model model){
-		cardRepository.delete(accountDetailForm.getId());
 		userDetailServiceImpl.delete(accountDetailForm.getId());
 		return "redirect:/admin/home";
 	}
@@ -73,9 +73,53 @@ public class AccountDetailController {
 		UserEntity user = userRepository.findOne(accountDetailForm.getId());
 		List<MCardEntity> mCardList = mCardRepository.findAll();
 		List<String> cardIdList = cardService.getCardIdList(accountDetailForm.getId());
-		BeanUtils.copyProperties(accountDetailForm, user);
+		copyPropertiesForDisplay(user, accountDetailForm);
 		model.addAttribute("cardIdList", cardIdList);
 		model.addAttribute("mCardList", mCardList);
 		model.addAttribute("cardNum", cardIdList.size());
+	}
+	
+	private void copyPropertiesForUpdate(AccountDetailForm from, UserEntity to)throws Exception{
+		// when Date　eq null, It will throws Exception.
+		long init = 00000000;
+		if(from.getLatestLoginTime() == null && from.getUpdateTime() == null){
+			from.setLatestLoginTime(new Date(init));
+			from.setUpdateTime(new Date(init));
+			BeanUtils.copyProperties(to, from);
+			to.setLatestLoginTime(null);
+			to.setUpdateTime(null);
+		}else if(from.getUpdateTime() == null){
+			from.setUpdateTime(new Date(init));
+			BeanUtils.copyProperties(to, from);
+			to.setUpdateTime(null);
+		}else if(from.getLatestLoginTime() == null){
+			from.setLatestLoginTime(new Date(init));
+			BeanUtils.copyProperties(to, from);
+			to.setLatestLoginTime(null);
+		}else{
+			BeanUtils.copyProperties(to, from);
+		}
+	}
+	
+	private void copyPropertiesForDisplay(UserEntity from, AccountDetailForm to)throws Exception{
+		// when Date　eq null, It will throws Exception.
+		long init = 00000000;
+		if(from.getLatestLoginTime() == null && from.getUpdateTime() == null){
+			from.setLatestLoginTime(new Date(init));
+			from.setUpdateTime(new Date(init));
+			BeanUtils.copyProperties(to, from);
+			to.setLatestLoginTime(null);
+			to.setUpdateTime(null);
+		}else if(from.getUpdateTime() == null){
+			from.setUpdateTime(new Date(init));
+			BeanUtils.copyProperties(to, from);
+			to.setUpdateTime(null);
+		}else if(from.getLatestLoginTime() == null){
+			from.setLatestLoginTime(new Date(init));
+			BeanUtils.copyProperties(to, from);
+			to.setLatestLoginTime(null);
+		}else{
+			BeanUtils.copyProperties(to, from);
+		}
 	}
 }
