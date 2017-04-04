@@ -10,6 +10,7 @@
   <jsp:include page="../include/css.jsp"></jsp:include>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
+
 <div class="wrapper">
 
 <sec:authentication property="principal.username" var="userId" />
@@ -50,21 +51,22 @@
             <!-- /.box-header -->
             <div class="box-body">
   	<form:form action="${pageContext.request.contextPath}/admin/accountDetail" method="post">
-              <table id="example1" class="table table-bordered table-striped">
+              <table id="paging" class="table table-bordered table-striped">
                 <thead>
 			  		<tr>
 				  		<th>No</th>
 				  		<th>User ID</th>
 				  		<th>Authority</th>
 				  		<th>Login time</th>
-				  		<th colspan="2">Edit</th>
+				  		<th>Show Detail</th>
+				  		<th>Delete Account</th>
 			  		</tr>
                 </thead>
                 <tbody>
 	
 		<c:forEach var="list" items="${userList}" varStatus="status">
 			<tr>
-			<td width="10%"><c:out value="${status.index}" /></td>
+			<td width="10%"><c:out value="${status.index + 1}" /></td>
 			<td><c:out value="${list.userId}" /></td>
 			<td width="10%">
 			<c:choose>
@@ -86,7 +88,8 @@
 				  		<th>User ID</th>
 				  		<th>Authority</th>
 				  		<th>Login time</th>
-				  		<th colspan="2">Edit</th>
+				  		<th>Show Detail</th>
+				  		<th>Delete Account</th>
 			  		</tr>
                 </tfoot>
               </table>
@@ -112,7 +115,7 @@
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
-
 <jsp:include page="../include/script.jsp"></jsp:include>
+
 </body>
 </html>
