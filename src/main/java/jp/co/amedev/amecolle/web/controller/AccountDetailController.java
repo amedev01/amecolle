@@ -13,7 +13,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import jp.co.amedev.amecolle.repository.CardRepository;
 import jp.co.amedev.amecolle.repository.MCardRepository;
@@ -22,8 +21,7 @@ import jp.co.amedev.amecolle.repository.entity.MCardEntity;
 import jp.co.amedev.amecolle.repository.entity.UserEntity;
 import jp.co.amedev.amecolle.service.CardService;
 import jp.co.amedev.amecolle.service.impl.UserDetailServiceImpl;
-import jp.co.amedev.amecolle.web.form.AdminDetailForm;
-import jp.co.amedev.amecolle.web.form.AdminHomeForm;
+import jp.co.amedev.amecolle.web.form.AccountDetailForm;
 
 @Controller
 public class AccountDetailController {
@@ -43,39 +41,39 @@ public class AccountDetailController {
 	@Autowired
 	CardRepository cardRepository;
 	
-	@PostMapping("/accountDetail")
-	public String execute(@ModelAttribute AdminDetailForm adminDetailForm,HttpServletRequest request,HttpServletResponse response, Model model)throws Exception{
-		init(model, adminDetailForm);
+	@PostMapping("admin/accountDetail")
+	public String execute(@ModelAttribute AccountDetailForm accountDetailForm,HttpServletRequest request,HttpServletResponse response, Model model)throws Exception{
+		init(model, accountDetailForm);
 		return("accountDetail");
 		
 	}
 
-	@PostMapping("/accountEdit")
-	public String execute(@Validated @ModelAttribute AdminDetailForm adminDetailForm, BindingResult result,HttpServletRequest request,HttpServletResponse response, Model model)throws Exception{
+	@PostMapping("admin/accountDetail/update")
+	public String execute(@Validated @ModelAttribute AccountDetailForm accountDetailForm, BindingResult result,HttpServletRequest request,HttpServletResponse response, Model model)throws Exception{
 		if(result.hasErrors()){
-			init(model, adminDetailForm);
+			init(model, accountDetailForm);
 			return  "accountDetail";
 		}
 		UserEntity user = new UserEntity();
-		BeanUtils.copyProperties(user, adminDetailForm);
+		BeanUtils.copyProperties(user, accountDetailForm);
 		userDetailServiceImpl.update(user);
 		
-		init(model, adminDetailForm);
+		init(model, accountDetailForm);
 		return("accountDetail");
 	}
 	
-	@PostMapping("/accountEdit/delete")
-	public String delete(@ModelAttribute AdminDetailForm adminDetailForm, BindingResult result, HttpServletRequest request,HttpServletResponse response, Model model){
-		cardRepository.delete(adminDetailForm.getId());
-		userDetailServiceImpl.delete(adminDetailForm.getId());
-		return "redirect:/adminHome";
+	@PostMapping("admin/accountDetail/delete")
+	public String delete(@ModelAttribute AccountDetailForm accountDetailForm, BindingResult result, HttpServletRequest request,HttpServletResponse response, Model model){
+		cardRepository.delete(accountDetailForm.getId());
+		userDetailServiceImpl.delete(accountDetailForm.getId());
+		return "redirect:/admin/home";
 	}
 	
-	private void init(Model model, AdminDetailForm adminDetailForm)throws Exception{
-		UserEntity user = userRepository.findOne(adminDetailForm.getId());
+	private void init(Model model, AccountDetailForm accountDetailForm)throws Exception{
+		UserEntity user = userRepository.findOne(accountDetailForm.getId());
 		List<MCardEntity> mCardList = mCardRepository.findAll();
-		List<String> cardIdList = cardService.getCardIdList(adminDetailForm.getId());
-		BeanUtils.copyProperties(adminDetailForm, user);
+		List<String> cardIdList = cardService.getCardIdList(accountDetailForm.getId());
+		BeanUtils.copyProperties(accountDetailForm, user);
 		model.addAttribute("cardIdList", cardIdList);
 		model.addAttribute("mCardList", mCardList);
 		model.addAttribute("cardNum", cardIdList.size());

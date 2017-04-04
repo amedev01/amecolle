@@ -15,6 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import jp.co.amedev.amecolle.constant.AmecolleConst;
 import jp.co.amedev.amecolle.repository.UserRepository;
 import jp.co.amedev.amecolle.repository.entity.UserEntity;
 
@@ -72,7 +73,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
 	}
 	
 	private User createUser(UserEntity account) {
-		return new User(account.getUserId(), account.getPassword(), AuthorityUtils.createAuthorityList(account.getRoleId()));
+		return new User(account.getUserId(), account.getPassword(), AuthorityUtils.createAuthorityList(account.getRoleId().equals(AmecolleConst.ROLE_ADMIN_NUM) ? AmecolleConst.ROLE_ADMIN : AmecolleConst.ROLE_USER));
 	}
 
 }

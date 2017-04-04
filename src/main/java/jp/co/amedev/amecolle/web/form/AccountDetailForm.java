@@ -4,7 +4,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import jp.co.amedev.amecolle.web.form.base.BaseForm;
 
-public class AdminDetailForm extends BaseForm {
+public class AccountDetailForm extends BaseForm {
 
 	@NotBlank	
 	private String userId;

@@ -26,7 +26,7 @@ public class CustomSuccessHandler implements AuthenticationSuccessHandler {
 		
 		switch(roleId.toString()){
 		case AmecolleConst.ROLE_USER : response.sendRedirect(request.getContextPath() + "/home");break;
-		case AmecolleConst.ROLE_ADMIN : response.sendRedirect(request.getContextPath() + "/adminHome");break;
+		case AmecolleConst.ROLE_ADMIN : response.sendRedirect(request.getContextPath() + "/admin/home");break;
 		default : throw new RuntimeException();
 		}
 	}

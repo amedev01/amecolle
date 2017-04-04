@@ -67,9 +67,12 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
+<sec:authentication property="principal.username" var="userId" />
+
+
   <header class="main-header">
     <!-- Logo -->
-    <a href="${pageContext.request.contextPath}/adminHome" class="logo">
+    <a href="${pageContext.request.contextPath}/admin/home" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>C<b>!</b></span>
       <!-- logo for regular state and mobile devices -->
@@ -91,7 +94,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="${pageContext.request.contextPath}/resources/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">UserId</span>
+              <span class="hidden-xs"><c:out value="${userId}"/></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -99,7 +102,9 @@
                 <img src="${pageContext.request.contextPath}/resources/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  UserId - Authority
+                  <c:out value="${userId}"/> - 
+                  <sec:authorize access="hasAuthority('admin')" >Admin</sec:authorize>
+                  <sec:authorize access="hasAuthority('user')" >User</sec:authorize>
                   <small>Member since DateTime.</small>
                 </p>
               </li>
@@ -128,8 +133,11 @@
           <img src="${pageContext.request.contextPath}/resources/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>your UserId</p>
-          <a href="#"><i class="fa fa-circle text-success"></i>your Authority</a>
+          <p><c:out value="${userId}"/></p>
+          <a href="#"><i class="fa fa-circle text-success"></i>
+                  <sec:authorize access="hasAuthority('admin')" >Admin</sec:authorize>
+                  <sec:authorize access="hasAuthority('user')" >User</sec:authorize>
+          </a>
         </div>
       </div>
     </section>
@@ -164,7 +172,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-  	<form:form action="accountDetail" method="post">
+  	<form:form action="${pageContext.request.contextPath}/admin/accountDetail" method="post">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
   		<tr><th>No</th><th>UserId</th><th>Authority</th><th colspan="2">Edit</th></tr>
@@ -177,13 +185,13 @@
 			<td><c:out value="${list.userId}" /></td>
 			<td width="10%">
 			<c:choose>
-			<c:when test="${list.roleId == '0' }">General</c:when>
+			<c:when test="${list.roleId == '0' }">User</c:when>
 			<c:when test="${list.roleId == '1' }">Admin</c:when>
 			<c:otherwise>不明</c:otherwise>
 			</c:choose>
 			</td>
-			<td width="10%"><input type="submit" value="Detail" class="btn btn-primary btn-block btn-flat" formaction="accountDetail?id=<c:out value='${list.id}'/>"></td>
-			<td width="10%"><input type="submit" value="Delete"  class="btn btn-primary btn-block btn-flat" formaction="accountEdit/delete?id=<c:out value='${list.id}'/>"></td>
+			<td width="10%"><input type="submit" value="Detail" class="btn btn-primary btn-block btn-flat" formaction="${pageContext.request.contextPath}/admin/accountDetail?id=<c:out value='${list.id}'/>"></td>
+			<td width="10%"><input type="submit" value="Delete"  class="btn btn-primary btn-block btn-flat" formaction="${pageContext.request.contextPath}/admin/accountDetail/delete?id=<c:out value='${list.id}'/>"></td>
 			</tr>
 		</c:forEach>
   

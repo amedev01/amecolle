@@ -19,7 +19,7 @@ public class AdminHomeController {
 	@Autowired
 	UserDetailServiceImpl userDetailServiceImpl;
 	
-	@RequestMapping("/adminHome")
+	@RequestMapping("/admin/home")
 	public String execute(@ModelAttribute AdminHomeForm AdminHomeForm,HttpServletRequest request,HttpServletResponse response, Model model){
 		model.addAttribute("userList", userDetailServiceImpl.findAll());
 		return("adminHome");
