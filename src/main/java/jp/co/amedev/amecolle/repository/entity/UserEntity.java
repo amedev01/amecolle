@@ -9,8 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 
 @Entity
@@ -31,6 +29,12 @@ public class UserEntity {
 	@Column(length = 1, nullable = false, name="role_id")
 	private String roleId;
 
+	@Column(name="win_num")
+	private String winNum;
+
+	@Column(name="lose_num")
+	private String loseNum;
+	
 	@Column(name="latest_login_time")
 	private Date latestLoginTime;
 
@@ -40,6 +44,23 @@ public class UserEntity {
 	@Column(name="delete_flg")
 	private String deleteFlag;
 	
+
+	public String getWinNum() {
+		return winNum;
+	}
+
+	public void setWinNum(String winNum) {
+		this.winNum = winNum;
+	}
+
+	public String getLoseNum() {
+		return loseNum;
+	}
+
+	public void setLoseNum(String loseNum) {
+		this.loseNum = loseNum;
+	}
+
 	public Date getLatestLoginTime() {
 		return latestLoginTime;
 	}

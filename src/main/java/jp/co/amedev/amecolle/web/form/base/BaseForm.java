@@ -10,10 +10,30 @@ public class BaseForm {
 
 	private String password;
 	
+	private String winNum;
+
+	private String loseNum;
+	
 	private Date latestLoginTime;
 
 	private Date updateTime;
 	
+	public String getWinNum() {
+		return winNum;
+	}
+
+	public void setWinNum(String winNum) {
+		this.winNum = winNum;
+	}
+
+	public String getLoseNum() {
+		return loseNum;
+	}
+
+	public void setLoseNum(String loseNum) {
+		this.loseNum = loseNum;
+	}
+
 	public Date getLatestLoginTime() {
 		return latestLoginTime;
 	}
