@@ -18,7 +18,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import jp.co.amedev.amecolle.constant.AmecolleConst;
 import jp.co.amedev.amecolle.repository.UserRepository;
+import jp.co.amedev.amecolle.repository.entity.DeckEntity;
 import jp.co.amedev.amecolle.repository.entity.UserEntity;
+import jp.co.amedev.amecolle.web.controller.BattleHomeController;
 
 @Service
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
@@ -29,7 +31,6 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-
 	
 	@Override
 	public User loadUserByUsername(String userId) throws UsernameNotFoundException {
@@ -47,6 +48,12 @@ public class UserDetailServiceImpl implements UserDetailsService {
 		}
 	}
 
+	//usernameからuserIDを引っ張ってくる
+	public long pullIdByUserId(String userId){
+		UserEntity userEntity = userRepository.findOneByUserId(userId);
+		return userEntity.getId();
+	}
+	
 	@Transactional
 	public UserEntity save(UserEntity user) {
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
