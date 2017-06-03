@@ -21,4 +21,5 @@ public class BattleResultController {
 	public String execute(@ModelAttribute BattleResultForm battleResultForm,HttpServletRequest request,HttpServletResponse response, Model model){
 		return("battleResult");		
 	}
+	
 }
