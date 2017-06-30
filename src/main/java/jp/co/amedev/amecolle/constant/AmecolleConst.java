@@ -9,4 +9,7 @@ public final class AmecolleConst {
 	public final static int CARD_NUM_MAX = 30;
 	public final static String DELETE_FLAG_ON = "1";
 	public final static String DELETE_FLAG_OFF = "0";
+
+	public final static String test = "0";
+
 }
