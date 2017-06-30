@@ -11,5 +11,6 @@ public final class AmecolleConst {
 	public final static String DELETE_FLAG_OFF = "0";
 
 	public final static String test = "0";
+	public final static String test2 = "0";
 
 }
