@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import jp.co.amedev.amecolle.repository.entity.MCardEntity;
+import jp.co.amedev.amecolle.service.CardService;
 import jp.co.amedev.amecolle.service.impl.CardServiceImpl;
 import jp.co.amedev.amecolle.service.impl.MCardServiceImpl;
 import jp.co.amedev.amecolle.service.impl.UserDetailServiceImpl;
@@ -24,6 +26,9 @@ import jp.co.amedev.amecolle.web.form.GachaResultForm;
 public class GachaResultController {
 	
 	@Autowired
+	CardServiceImpl cardServiceImpl;
+	
+	@Autowired
 	MCardServiceImpl mCardServiceImpl;
 
 /*
@@ -36,7 +41,10 @@ public class GachaResultController {
 
 	@RequestMapping("/gachaResult")
 	public String execute(GachaResultForm GachaResultForm,HttpServletRequest request,HttpServletResponse response, Model model){
-		model.addAttribute("pullOne", mCardServiceImpl.pullOneCharacter());
+		MCardEntity gatyaResult = mCardServiceImpl.pullOneCharacter();
+		model.addAttribute("pullOne",gatyaResult);
+		// ガチャ結果を保存するための記述
+		cardServiceImpl.saveGatyaResult(gatyaResult);
 		return("gachaResult");
 	}
 
