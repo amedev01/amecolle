@@ -19,7 +19,11 @@ import jp.co.amedev.amecolle.service.MCardService;
 
 		@Autowired
 		MCardRepository mCardRepository;
-
+		
+		public MCardEntity pullCard(long card){
+			MCardEntity mCardEntity = mCardRepository.findOneByCardId(card);
+			return mCardEntity;
+		}
 		
 		@Transactional
 		public MCardEntity pullOneCharacter() {

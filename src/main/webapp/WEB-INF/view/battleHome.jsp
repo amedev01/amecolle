@@ -12,6 +12,8 @@
 	<c:out value="${deckEntity.deckId" />
 	<c:out value="${deckEntity.deckName}" />
 	<c:out value="${deckEntity.card1}" />
+	<c:out value="${mCardEntity1.hitPoint}" />
+	<c:out value="${mCardEntity1.attack}" />
 	<c:out value="${deckEntity.card2}" />
 	<c:out value="${deckEntity.card3}" />
 	
@@ -71,6 +73,8 @@
         
     <c:out value="${deckEntity.deckId}" />
 	<c:out value="${deckEntity.deckName}" />
+	<c:out value="${mCardEntity1.hitPoint}" />
+	<c:out value="${mCardEntity1.attack}" />
 	<c:out value="${deckEntity.card1}" />
 	<c:out value="${deckEntity.card2}" />
 	<c:out value="${deckEntity.card3}" />

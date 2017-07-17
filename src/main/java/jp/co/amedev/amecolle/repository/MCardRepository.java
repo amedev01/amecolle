@@ -10,7 +10,6 @@ import jp.co.amedev.amecolle.repository.entity.MCardEntity;
 
 @Repository
 public interface MCardRepository extends JpaRepository<MCardEntity, Long>{
-//	@Query(value = "select rarity, count(*) as cnt from m_card group by rarity")
-//	List<MCardEntity> findByRarity();
+	MCardEntity findOneByCardId(long card);
 }
 
