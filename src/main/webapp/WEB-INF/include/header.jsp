@@ -2,7 +2,7 @@
 
 <sec:authorize access="hasAuthority('user')" >
        <!-- Logo -->
-    <a href="${pageContext.request.contextPath}/admin/home" class="logo">
+    <a href="${pageContext.request.contextPath}/home" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>C<b>!</b></span>
       <!-- logo for regular state and mobile devices -->

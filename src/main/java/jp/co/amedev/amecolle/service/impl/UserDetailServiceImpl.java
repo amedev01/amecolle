@@ -9,7 +9,9 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -48,6 +50,14 @@ public class UserDetailServiceImpl implements UserDetailsService {
 		}
 	}
 
+	// ログインユーザのIDを取得
+	public long getUserId(){
+		UserDetails user = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		UserEntity userEntity = userRepository.findOneByUserId(user.getUsername());
+		return userEntity.getId();
+	}
+
+	
 	//usernameからuserIDを引っ張ってくる
 	public long pullIdByUserId(String userId){
 		UserEntity userEntity = userRepository.findOneByUserId(userId);
