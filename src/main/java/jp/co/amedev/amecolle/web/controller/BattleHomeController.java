@@ -31,11 +31,13 @@ public class BattleHomeController {
 	UserDetailServiceImpl userDetailServiceImpl;
 	@RequestMapping("/battleHome")
 	public String execute(@ModelAttribute BattleHomeForm BattleHomeForm,HttpServletRequest request,HttpServletResponse response, Model model){
+
+		// デッキ情報の取得
 		Authentication test = SecurityContextHolder.getContext().getAuthentication();
 		String userName = test.getName();
 		long id = userDetailServiceImpl.pullIdByUserId(userName);
 		DeckEntity deckEntity = deckServiceImpl.pullDeck(id);
-		model.addAttribute(deckEntity);
-		return("battleHome");	
+		model.addAttribute("deckEntity", deckEntity);
+		return("battleHome");
 	}
 }
