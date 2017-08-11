@@ -45,8 +45,17 @@ public class SignUpController {
 		userEntity = userDetailServiceImpl.save(userEntity);
 		cardService.saveNew(userEntity.getId());
 		
-		return "redirect:/login";
+		//return "redirect:/login";
+		return "redirect:/signUp/tutorialGachaHome";
+		//return ("tutorialGachaHome");
 	}
+
+	@RequestMapping("/signUp/tutorialGachaHome")
+	public String execute(HttpServletRequest request,HttpServletResponse response)throws Exception{
+		
+		return ("tutorialGachaHome");
+	}
+
 	
 	private void copyPropertiesForUpdate(SignUpForm from, UserEntity to)throws Exception{
 		// when Date　eq null, It will throws Exception.
