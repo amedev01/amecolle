@@ -7,6 +7,13 @@ table {
   width: 50%;
 }
 
+table.deckHome {
+  border: 0px grey solid;
+  border-collapse: separate;
+  border-spacing: 5px 0px;
+  width: 50%;
+}
+
 th {
   border: 1px grey solid;
   background: linear-gradient(#2a4073, #165e83);

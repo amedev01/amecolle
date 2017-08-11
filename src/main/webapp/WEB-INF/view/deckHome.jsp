@@ -66,11 +66,41 @@
 
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Information</h3>
+              <h3 class="box-title">Deck</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-            
+            <form:form action="/deckEdit" modelAttribute="deckHomeForm" >
+            <table class="deckHome" >
+            <tr>
+            	<c:forEach var="list" items="${deckHomeForm.mCardList}" varStatus="idx">
+            	<th>
+	               	☆<c:out value="${list.rarity }" />&nbsp;
+	               <c:out value="${list.cardName }" />
+            	</th>
+            	</c:forEach>
+            </tr>
+            <tr>
+            	<td>
+            		<img alt="test" src="${pageContext.request.contextPath}/resources/image/card/kondoh.jpg" width="150" height="200">
+            	</td>
+            	<td>
+            		<img alt="test" src="${pageContext.request.contextPath}/resources/image/card/kondoh.jpg" width="150" height="200">
+            	</td>
+            	<td>
+            		<img alt="test" src="${pageContext.request.contextPath}/resources/image/card/kondoh.jpg" width="150" height="200">
+            	</td>
+            </tr>
+            <tr>
+            	<c:forEach var="list" items="${deckHomeForm.mCardList}">
+            	<td>
+	               HP : <c:out value="${list.hitPoint }" />&nbsp;
+	               ATK : <c:out value="${list.attack }" />
+            	</td>
+            	</c:forEach>
+            </tr>
+            </table>
+            </form:form>
             
             </div>
             <!-- /.box-body -->
