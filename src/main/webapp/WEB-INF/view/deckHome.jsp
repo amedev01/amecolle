@@ -75,6 +75,7 @@
             <tr>
             	<c:forEach var="list" items="${deckHomeForm.mCardList}" varStatus="idx">
             	<th>
+            		<input type="radio" name="outDeckFlg"/>&nbsp;
 	               	☆<c:out value="${list.rarity }" />&nbsp;
 	               <c:out value="${list.cardName }" />
             	</th>
@@ -99,6 +100,29 @@
             	</td>
             	</c:forEach>
             </tr>
+            </table>
+            
+            <hr>
+            
+            <table>
+            	<tr>
+            		<th>Change</th>
+            		<th>Card</th>
+            		<th>Rarity</th>
+            		<th>Attack</th>
+            		<th>HP</th>
+            	</tr>
+            	<c:forEach var="list" items="${deckHomeForm.userCardList}">
+            		<tr>
+            			<c:forEach var="inDeckCard" items="${deckHomeForm.mCardList}">
+            			<td><input type="radio" name="inDeckFlg"/></td>
+            			</c:forEach>
+            			<td><c:out value="${list.cardName }" /></td>
+            			<td>☆<c:out value="${list.rarity }" /></td>
+            			<td>HP : <c:out value="${list.hitPoint }" /></td>
+            			<td>ATK : <c:out value="${list.attack  }" /></td>
+            		</tr>
+            	</c:forEach>
             </table>
             </form:form>
             

@@ -42,11 +42,8 @@ public class DeckHomeController {
 	public String execute(@ModelAttribute DeckHomeForm DeckHomeForm,HttpServletRequest request,HttpServletResponse response, Model model)
 	throws InvocationTargetException ,IllegalAccessException{
 	
-		List<String> cardIdList = cardServiceImpl.getCardIdList(userDetailServiceImpl.getUserId());
-		List<MCardEntity> userCardList = new ArrayList<>();
-		for(String cardId : cardIdList){
-			userCardList.add(mCardServiceImpl.pullCard(Long.parseLong(cardId)));
-		}
+		
+		// ログインユーザのデッキ
 		DeckEntity deck = deckServiceImpl.pullDeck(userDetailServiceImpl.getUserId());
 		BeanUtils.copyProperties(DeckHomeForm, deck);
 		
@@ -57,6 +54,12 @@ public class DeckHomeController {
 		DeckHomeForm.getmCardList().add(mCardServiceImpl.pullCard(card2));
 		DeckHomeForm.getmCardList().add(mCardServiceImpl.pullCard(card3));
 
+		// ログインユーザ所持カードのリスト
+		List<String> cardIdList = cardServiceImpl.getCardIdList(userDetailServiceImpl.getUserId());
+		for(String cardId : cardIdList){
+			DeckHomeForm.getUserCardList().add(mCardServiceImpl.pullCard(Long.parseLong(cardId)));
+		}
+		
 		
 		return("deckHome");
 	}
