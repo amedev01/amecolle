@@ -9,7 +9,7 @@
 	<body>
 	<h2>ガチャホーム画面</h2>
 	<form:form modelAttribute="gachaResultForm" action="gachaResult" method="post">
-		<form:errors name="gachaResultForm" /> <br />
+		<form:errors name="gachaResultForm" />
 		<input type="submit">
 	</form:form>
 	</body>
