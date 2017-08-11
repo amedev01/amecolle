@@ -6,12 +6,16 @@ import java.util.Map;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import jp.co.amedev.amecolle.constant.AmecolleConst;
 import jp.co.amedev.amecolle.repository.CardRepository;
+import jp.co.amedev.amecolle.repository.UserRepository;
 import jp.co.amedev.amecolle.repository.entity.CardEntity;
 import jp.co.amedev.amecolle.repository.entity.MCardEntity;
+import jp.co.amedev.amecolle.repository.entity.UserEntity;
 import jp.co.amedev.amecolle.service.CardService;
 
 @Service
@@ -25,6 +29,10 @@ public class CardServiceImpl implements CardService{
 		card.setId(id);
 		cardRepository.save(card);
 	}
+	
+	@Autowired
+	UserRepository userRepository;
+	
 	
 	@Override
 	public List<String> getCardIdList(long id) {
@@ -47,8 +55,15 @@ public class CardServiceImpl implements CardService{
 	}
 
 	//cardテーブルへの保存処理
+	// ログインユーザのIDを取得
+	public long getUserId(){
+		UserDetails user = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		UserEntity userEntity = userRepository.findOneByUserId(user.getUsername());
+		return userEntity.getId();
+	}
+	
 	public void saveGatyaResult(MCardEntity gatyaResult) throws Exception{
-		int testUserId = 5; //User aaa → userを持ってくる処理も必要
+		int testUserId = (int) getUserId(); //User aaa → userを持ってくる処理も必要
 		CardEntity card = cardRepository.findOne((long)testUserId);
 		
 		//no_1から回してNULLに入れる処理
