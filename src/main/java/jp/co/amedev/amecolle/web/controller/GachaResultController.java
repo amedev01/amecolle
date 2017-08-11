@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -40,11 +42,16 @@ public class GachaResultController {
 */
 
 	@RequestMapping("/gachaResult")
-	public String execute(GachaResultForm GachaResultForm,HttpServletRequest request,HttpServletResponse response, Model model){
+	public String execute(@Validated @ModelAttribute GachaResultForm gachaResultForm,BindingResult result,HttpServletRequest request,HttpServletResponse response, Model model  ){
 		MCardEntity gatyaResult = mCardServiceImpl.pullOneCharacter();
 		model.addAttribute("pullOne",gatyaResult);
 		// ガチャ結果を保存するための記述
+		try{
 		cardServiceImpl.saveGatyaResult(gatyaResult);
+		} catch(Exception e){
+			result.reject("errors.deckover");
+			return("gachaHome");
+		}
 		return("gachaResult");
 	}
 

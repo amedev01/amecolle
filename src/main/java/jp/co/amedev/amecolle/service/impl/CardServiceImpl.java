@@ -47,7 +47,7 @@ public class CardServiceImpl implements CardService{
 	}
 
 	//cardテーブルへの保存処理
-	public void saveGatyaResult(MCardEntity gatyaResult){
+	public void saveGatyaResult(MCardEntity gatyaResult) throws Exception{
 		int testUserId = 5; //User aaa → userを持ってくる処理も必要
 		CardEntity card = cardRepository.findOne((long)testUserId);
 		
@@ -172,6 +172,8 @@ public class CardServiceImpl implements CardService{
 			} else if(card.getNo30() == null){
 				
 				card.setNo30(gatyaResult.getCardId().toString());
+			} else {
+				throw new Exception();
 			}
 			cardRepository.save(card);
 		

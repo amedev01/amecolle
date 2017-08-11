@@ -8,7 +8,8 @@
 <jsp:include page="../header/header.jsp" flush="true" />
 	<body>
 	<h2>ガチャホーム画面</h2>
-	<form:form action="gachaResult" method="post">
+	<form:form modelAttribute="gachaResultForm" action="gachaResult" method="post">
+		<form:errors name="gachaResultForm" /> <br />
 		<input type="submit">
 	</form:form>
 	</body>
