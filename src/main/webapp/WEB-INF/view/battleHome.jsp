@@ -1,29 +1,3 @@
-<%-- 
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<meta charset="utf-8">
-<title>AmeminCollection!!</title>
-<jsp:include page="../header/header.jsp" flush="true" />
-	<body>
-	<h2>バトルホーム画面</h2>
-	
-	<c:out value="${deckEntity.deckId" />
-	<c:out value="${deckEntity.deckName}" />
-	<c:out value="${deckEntity.card1}" />
-	<c:out value="${mCardEntity1.hitPoint}" />
-	<c:out value="${mCardEntity1.attack}" />
-	<c:out value="${deckEntity.card2}" />
-	<c:out value="${deckEntity.card3}" />
-	
-	<form:form action="battleResult" method="post">
-		<input type="submit">
-	</form:form>
-	</body>
-</html> --%>
-
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -70,15 +44,30 @@
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-        
-    <c:out value="${deckEntity.deckId}" />
-	<c:out value="${deckEntity.deckName}" />
-	<c:out value="${mCardEntity1.hitPoint}" />
-	<c:out value="${mCardEntity1.attack}" />
-	<c:out value="${deckEntity.card1}" />
-	<c:out value="${deckEntity.card2}" />
-	<c:out value="${deckEntity.card3}" />
 
+	<b>
+		<c:out value="あなたのデッキ情報"/>
+	</b> 
+	<br />
+	    <c:out value="${deckEntity.deckId}" />
+		<c:out value="${deckEntity.deckName}" />
+		<c:out value="${mCardEntity1.hitPoint}" />
+		<c:out value="${mCardEntity1.attack}" />
+		<c:out value="${deckEntity.card1}" />
+		<c:out value="${deckEntity.card2}" />
+		<c:out value="${deckEntity.card3}" />
+	<br /> <br />
+	
+	<b>
+		<c:out value="相手のデッキ情報"/>
+	</b>
+	<br />
+		<c:out value="相手のデッキ情報を表示する予定"/>
+	<br /> <br />
+	
+	
+	
+<%--
           <!-- /.box -->
 
           <div class="box">
@@ -93,6 +82,7 @@
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
+--%>
         </div>
         <!-- /.col -->
       </div>
