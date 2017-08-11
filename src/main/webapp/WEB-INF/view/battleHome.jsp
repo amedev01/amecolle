@@ -62,9 +62,14 @@
 		<c:out value="相手のデッキ情報"/>
 	</b>
 	<br />
-		<c:out value="相手のデッキ情報を表示する予定"/>
+	    <c:out value="${enemyDeckEntity.deckId}" />
+		<c:out value="${enemyDeckEntity.deckName}" />
+		<c:out value="${enemyCardEntity1.hitPoint}" />
+		<c:out value="${enemyCardEntity1.attack}" />
+		<c:out value="${enemyDeckEntity.card1}" />
+		<c:out value="${enemyDeckEntity.card2}" />
+		<c:out value="${enemyDeckEntity.card3}" />
 	<br /> <br />
-	
 	
 	
 <%--
