@@ -44,50 +44,59 @@
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-
-	<b>
-		<c:out value="あなたのデッキ情報"/>
-	</b> 
-	<br />
-	    <c:out value="${deckEntity.deckId}" />
-		<c:out value="${deckEntity.deckName}" />
-		<c:out value="${mCardEntity1.hitPoint}" />
-		<c:out value="${mCardEntity1.attack}" />
-		<c:out value="${deckEntity.card1}" />
-		<c:out value="${deckEntity.card2}" />
-		<c:out value="${deckEntity.card3}" />
-	<br /> <br />
-	
-	<b>
-		<c:out value="相手のデッキ情報"/>
-	</b>
-	<br />
-	    <c:out value="${enemyDeckEntity.deckId}" />
-		<c:out value="${enemyDeckEntity.deckName}" />
-		<c:out value="${enemyCardEntity1.hitPoint}" />
-		<c:out value="${enemyCardEntity1.attack}" />
-		<c:out value="${enemyDeckEntity.card1}" />
-		<c:out value="${enemyDeckEntity.card2}" />
-		<c:out value="${enemyDeckEntity.card3}" />
-	<br /> <br />
-	
-	
-<%--
-          <!-- /.box -->
-
+        
+        <!-- /.box -->
+          
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Information</h3>
+            <h3 class="box-title">Battle</h3>
             </div>
+
             <!-- /.box-header -->
-            <div class="box-body">
             
+            <div class="box-body">
+            <b><c:out value="あなたのデッキ情報"/></b>
+        <br />
+        <table class="battleHome">
+        <tr>
+        	<c:forEach var="list" items="${deckHomeForm.mCardList}" varStatus="idx">
+        	<td><c:out value="Rarelity" />&nbsp;
+        		<c:out value="Card" />
+        	</td>
+        	<td>
+        		☆<c:out value="${list.rarity }" />&nbsp;
+        		 <c:out value="${list.cardName }" />
+        	</td>
+        </c:forEach>
+        </tr>
+        <tr>
+		    <c:out value="${deckEntity.deckId}" />
+			<c:out value="${deckEntity.deckName}" />
+			<c:out value="${mCardEntity1.hitPoint}" />
+			<c:out value="${mCardEntity1.attack}" />
+			<c:out value="${deckEntity.card1}" />
+			<c:out value="${deckEntity.card2}" />
+			<c:out value="${deckEntity.card3}" />
+		</tr>
+		</table>
+		<br /> <br />
+		
+			<b><c:out value="相手のデッキ情報"/></b>
+		<br />
+		    <c:out value="${enemyDeckEntity.deckId}" />
+			<c:out value="${enemyDeckEntity.deckName}" />
+			<c:out value="${enemyCardEntity1.hitPoint}" />
+			<c:out value="${enemyCardEntity1.attack}" />
+			<c:out value="${enemyDeckEntity.card1}" />
+			<c:out value="${enemyDeckEntity.card2}" />
+			<c:out value="${enemyDeckEntity.card3}" />
+		<br /> <br />
             
             </div>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
---%>
+
         </div>
         <!-- /.col -->
       </div>
