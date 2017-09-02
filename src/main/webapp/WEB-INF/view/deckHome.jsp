@@ -70,12 +70,13 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-            <form:form action="/deckEdit" modelAttribute="deckHomeForm" >
+            <form:form action="deckEdit" modelAttribute="deckHomeForm" >
             <table class="deckHome" >
             <tr>
-            	<c:forEach var="list" items="${deckHomeForm.mCardList}" varStatus="idx">
+            	<c:forEach var="list" items="${deckHomeForm.mCardList}" varStatus="status">
+            	<c:set var="idx" value="${status.index }"></c:set>
             	<th>
-            		<input type="radio" name="outDeckFlg"/>&nbsp;
+            		<input type="radio" name="outDeck" value="${idx + 1}"/>&nbsp;
 	               	☆<c:out value="${list.rarity }" />&nbsp;
 	               <c:out value="${list.cardName }" />
             	</th>
@@ -97,7 +98,7 @@
             	</c:forEach>
             </tr>
             </table>
-            
+            <form:button value="変更">変更</form:button>
             <hr>
             
             <table>
@@ -113,7 +114,7 @@
             	<c:set var="idx" value="${status.index + 1}"></c:set>
             		<tr>
             			<td><c:out value="${idx}"></c:out></td>
-            			<td><input type="radio" name="inDeckFlg"/></td>
+            			<td><input type="radio" name="inDeck" value="${idx}"/></td>
             			<td><c:out value="${list.cardName }" /></td>
             			<td>☆<c:out value="${list.rarity }" /></td>
             			<td>HP : <c:out value="${list.hitPoint }" /></td>
