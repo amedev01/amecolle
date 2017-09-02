@@ -62,9 +62,8 @@ public class CardServiceImpl implements CardService{
 		return userEntity.getId();
 	}
 	
-	public void saveGatyaResult(MCardEntity gatyaResult) throws Exception{
-		int testUserId = (int) getUserId(); //User aaa → userを持ってくる処理も必要
-		CardEntity card = cardRepository.findOne((long)testUserId);
+	public void saveGatyaResult(MCardEntity gatyaResult,int userId) throws Exception{
+		CardEntity card = cardRepository.findOne((long)userId);
 		
 		//no_1から回してNULLに入れる処理
 			if(card.getNo1() == null){

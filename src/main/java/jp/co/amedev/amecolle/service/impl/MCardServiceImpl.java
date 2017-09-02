@@ -62,7 +62,6 @@ import jp.co.amedev.amecolle.service.MCardService;
 //			return pullCard;
 			return gatyaResult;
 		}
-
-		
-	}
+	
+}
 

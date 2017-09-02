@@ -8,7 +8,7 @@
 <jsp:include page="../header/header.jsp" flush="true" />
 	<body>
 	<h2>チュートリアル　３連ガチャ</h2>
-	<form:form modelAttribute="gachaResultForm" action="gachaResult" method="post">
+	<form:form modelAttribute="tutorialGachaResultForm" action="tutorialGachaResult" method="post">
 		<form:errors name="gachaResultForm" />
 		<input type="submit">
 	</form:form>

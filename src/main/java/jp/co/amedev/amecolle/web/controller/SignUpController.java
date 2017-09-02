@@ -45,6 +45,7 @@ public class SignUpController {
 		userEntity = userDetailServiceImpl.save(userEntity);
 		cardService.saveNew(userEntity.getId());
 		
+		request.getSession().setAttribute("userEntity", userEntity);
 		//return "redirect:/login";
 		return "redirect:/signUp/tutorialGachaHome";
 		//return ("tutorialGachaHome");

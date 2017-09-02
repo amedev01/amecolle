@@ -28,16 +28,8 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
-<sec:authentication property="principal.username" var="userId" />
-
-
-  <header class="main-header">
-	<jsp:include page="../include/header.jsp"></jsp:include>
-  </header>
-
-  <aside class="main-sidebar">
-	<jsp:include page="../include/sidebar.jsp"></jsp:include>
-  </aside>
+<!--  sec:authentication property="principal.username" var="userId" />
+-->
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -58,8 +50,10 @@
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-		<c:out value="${pullOne.cardName}" />
-          <!-- /.box -->
+			<c:forEach var="cardList" items="${cardList}" >
+				<c:out value="${cardList.cardName}"/>
+			</c:forEach> 
+<!-- /.box -->
 <!-- /// -->
           <div class="box">
             <div class="box-header">

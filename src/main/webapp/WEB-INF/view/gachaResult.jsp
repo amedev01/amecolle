@@ -58,7 +58,7 @@
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-		<c:out value="${pullOne.cardName}" />
+		<c:out value="${pullOne.cardName}"/>
           <!-- /.box -->
 <!-- /// -->
           <div class="box">
