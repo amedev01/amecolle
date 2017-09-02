@@ -24,6 +24,18 @@ public class MCardEntity {
 	
 	@Column(name="rarity")
 	private String rarity;
+	
+	@Column(name="url")
+	private String url;
+
+	
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
 
 	public Long getCardId() {
 		return cardId;

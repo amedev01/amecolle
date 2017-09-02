@@ -82,18 +82,14 @@
             	</c:forEach>
             </tr>
             <tr>
+            	<c:forEach var="list" items="${deckHomeForm.mCardList}" varStatus="idx">
             	<td>
-            		<img alt="test" src="${pageContext.request.contextPath}/resources/image/card/kondoh.jpg" width="150" height="200">
-            	</td>
-            	<td>
-            		<img alt="test" src="${pageContext.request.contextPath}/resources/image/card/kondoh.jpg" width="150" height="200">
-            	</td>
-            	<td>
-            		<img alt="test" src="${pageContext.request.contextPath}/resources/image/card/kondoh.jpg" width="150" height="200">
-            	</td>
+					<img alt="card" src="${list.url }" width="150" height="200">
+				</td>
+            	</c:forEach>
             </tr>
             <tr>
-            	<c:forEach var="list" items="${deckHomeForm.mCardList}">
+            	<c:forEach var="list" items="${deckHomeForm.mCardList}" >
             	<td>
 	               HP : <c:out value="${list.hitPoint }" />&nbsp;
 	               ATK : <c:out value="${list.attack }" />
@@ -106,17 +102,18 @@
             
             <table>
             	<tr>
+            		<th>No</th>
             		<th>Change</th>
             		<th>Card</th>
             		<th>Rarity</th>
             		<th>Attack</th>
             		<th>HP</th>
             	</tr>
-            	<c:forEach var="list" items="${deckHomeForm.userCardList}">
+            	<c:forEach var="list" items="${deckHomeForm.userCardList}" varStatus="status">
+            	<c:set var="idx" value="${status.index + 1}"></c:set>
             		<tr>
-            			<c:forEach var="inDeckCard" items="${deckHomeForm.mCardList}">
+            			<td><c:out value="${idx}"></c:out></td>
             			<td><input type="radio" name="inDeckFlg"/></td>
-            			</c:forEach>
             			<td><c:out value="${list.cardName }" /></td>
             			<td>☆<c:out value="${list.rarity }" /></td>
             			<td>HP : <c:out value="${list.hitPoint }" /></td>
