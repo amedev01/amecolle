@@ -69,6 +69,15 @@ public class GachaResultController {
 		List<MCardEntity> cardList = new ArrayList<>();
 		for (int i = 0; i < 3; i++) {	
 		cardList.add(mCardServiceImpl.pullOneCharacter());
+			if (i > 0 && cardList.get(i).getCardId() == cardList.get(i-1).getCardId()) {
+				cardList.remove(i);
+				i--;
+			}
+			if(i == 2 && cardList.get(i).getCardId() == cardList.get(i-2).getCardId() ){
+				cardList.remove(i);
+				i--;
+			}
+			
 		}
 		model.addAttribute("cardList",cardList);
 		// ガチャ結果を保存するための記述
