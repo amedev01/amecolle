@@ -36,7 +36,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Home
+        ガチャ結果
         <small>Your Performance</small>
       </h1>
       <ol class="breadcrumb">
@@ -50,17 +50,18 @@
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-			<c:forEach var="cardList" items="${cardList}" >
-				<c:out value="${cardList.cardName}"/>
-			</c:forEach> 
 <!-- /.box -->
 <!-- /// -->
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Information</h3>
+              <h3 class="box-title">結果</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
+
+			<c:forEach var="cardList" items="${cardList}" >
+				<c:out value="${cardList.cardName}"/>
+			</c:forEach> 
             
             
             </div>

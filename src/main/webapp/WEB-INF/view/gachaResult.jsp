@@ -44,7 +44,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Home
+        結果
         <small>Your Performance</small>
       </h1>
       <ol class="breadcrumb">
@@ -58,15 +58,17 @@
     <section class="content">
       <div class="row">
         <div class="col-xs-12">
-		<c:out value="${pullOne.cardName}"/>
           <!-- /.box -->
 <!-- /// -->
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Information</h3>
+              <h3 class="box-title"><c:out value="${pullOne.cardName}"/></h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
+            
+					<img alt="card" src="${list.url }" width="150" height="200">            
+            
             
             
             </div>
