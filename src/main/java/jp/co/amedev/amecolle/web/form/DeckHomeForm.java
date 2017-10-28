@@ -3,6 +3,8 @@ package jp.co.amedev.amecolle.web.form;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import jp.co.amedev.amecolle.repository.entity.MCardEntity;
 import jp.co.amedev.amecolle.web.form.base.BaseForm;
 
@@ -18,9 +20,27 @@ public class DeckHomeForm extends BaseForm {
 	
 	private String rarity;
 	
-	private List<MCardEntity> mCardList = new ArrayList<>();
+	private List<MCardEntity> deckCardList = new ArrayList<>();
 
 	private List<MCardEntity> userCardList = new ArrayList<>();
+	
+	@NotBlank(message = "{errors.deck.out}")
+	private String outDeck;
+	@NotBlank(message = "{errors.deck.in}")
+	private String inDeck;
+	
+	public String getOutDeck() {
+		return outDeck;
+	}
+	public void setOutDeck(String outDeck) {
+		this.outDeck = outDeck;
+	}
+	public String getInDeck() {
+		return inDeck;
+	}
+	public void setInDeck(String inDeck) {
+		this.inDeck = inDeck;
+	}
 	
 	public List<MCardEntity> getUserCardList() {
 		return userCardList;
@@ -70,11 +90,11 @@ public class DeckHomeForm extends BaseForm {
 		this.rarity = rarity;
 	}
 
-	public List<MCardEntity> getmCardList() {
-		return mCardList;
+	public List<MCardEntity> getDeckCardList() {
+		return deckCardList;
 	}
 
-	public void setmCardList(List<MCardEntity> mCardList) {
-		this.mCardList = mCardList;
+	public void setDeckCardList(List<MCardEntity> mCardList) {
+		this.deckCardList = mCardList;
 	}	 
 }

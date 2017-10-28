@@ -4,7 +4,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import jp.co.amedev.amecolle.web.form.base.BaseForm;
 
-public class DeckEditForm extends BaseForm {
+public class DeckEditForm extends DeckHomeForm {
 
 	@NotBlank
 	public String outDeck;

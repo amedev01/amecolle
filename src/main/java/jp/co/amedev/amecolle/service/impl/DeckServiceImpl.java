@@ -17,6 +17,9 @@ public class DeckServiceImpl implements DeckService{
 	@Autowired
 	DeckRepository deckRepository;
 	
+	public void update(DeckEntity entity){
+		deckRepository.save(entity);
+	}
 	public DeckEntity pullDeck(long userId){
 		DeckEntity deckEntity = deckRepository.findOneById(userId);
 		return deckEntity;

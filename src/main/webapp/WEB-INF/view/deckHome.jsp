@@ -71,26 +71,27 @@
             <!-- /.box-header -->
             <div class="box-body">
             <form:form action="deckEdit" modelAttribute="deckHomeForm" >
+            <form:errors path="*" cssStyle="color:red"/>
             <table class="deckHome" >
             <tr>
-            	<c:forEach var="list" items="${deckHomeForm.mCardList}" varStatus="status">
+            	<c:forEach var="list" items="${deckHomeForm.deckCardList}" varStatus="status">
             	<c:set var="idx" value="${status.index }"></c:set>
             	<th>
-            		<input type="radio" name="outDeck" value="${idx + 1}"/>&nbsp;
+            		<form:radiobutton path="outDeck" value="${idx + 1}"/>&nbsp;
 	               	☆<c:out value="${list.rarity }" />&nbsp;
 	               <c:out value="${list.cardName }" />
             	</th>
             	</c:forEach>
             </tr>
             <tr>
-            	<c:forEach var="list" items="${deckHomeForm.mCardList}" varStatus="idx">
+            	<c:forEach var="list" items="${deckHomeForm.deckCardList}" varStatus="idx">
             	<td>
 					<img alt="card" src="${list.url }" width="150" height="200">
 				</td>
             	</c:forEach>
             </tr>
             <tr>
-            	<c:forEach var="list" items="${deckHomeForm.mCardList}" >
+            	<c:forEach var="list" items="${deckHomeForm.deckCardList}" >
             	<td>
 	               HP : <c:out value="${list.hitPoint }" />&nbsp;
 	               ATK : <c:out value="${list.attack }" />
@@ -114,7 +115,7 @@
             	<c:set var="idx" value="${status.index + 1}"></c:set>
             		<tr>
             			<td><c:out value="${idx}"></c:out></td>
-            			<td><input type="radio" name="inDeck" value="${idx}"/></td>
+            			<td><input type="radio" name="inDeck" value="${list.cardId}"/></td>
             			<td><c:out value="${list.cardName }" /></td>
             			<td>☆<c:out value="${list.rarity }" /></td>
             			<td>HP : <c:out value="${list.hitPoint }" /></td>
