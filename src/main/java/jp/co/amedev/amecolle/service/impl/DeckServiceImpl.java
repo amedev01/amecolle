@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import jp.co.amedev.amecolle.repository.DeckRepository;
 import jp.co.amedev.amecolle.repository.entity.DeckEntity;
+import jp.co.amedev.amecolle.repository.entity.UserEntity;
 import jp.co.amedev.amecolle.service.DeckService;
 
 @Service
@@ -36,5 +37,18 @@ public class DeckServiceImpl implements DeckService{
 //		DeckEntity deckEntity = deckRepository.findOneById(mother);
 		return deckEntityList.get(mother);
 	}
+	
+	public void deckCreate(int id ,String card1 ,String card2 ,String card3){
+		DeckEntity deckEntity = new DeckEntity();
+		deckEntity.setId(id);
+		deckEntity.setDeckId("99");
+		deckEntity.setDeckName("fuck");
+		deckEntity.setCard1(card1);
+		deckEntity.setCard2(card2);
+		deckEntity.setCard3(card3);
+
+		deckRepository.save(deckEntity);
+	}
+
 	
 }

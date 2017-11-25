@@ -18,6 +18,7 @@ import jp.co.amedev.amecolle.repository.entity.MCardEntity;
 import jp.co.amedev.amecolle.repository.entity.UserEntity;
 import jp.co.amedev.amecolle.service.CardService;
 import jp.co.amedev.amecolle.service.impl.CardServiceImpl;
+import jp.co.amedev.amecolle.service.impl.DeckServiceImpl;
 import jp.co.amedev.amecolle.service.impl.MCardServiceImpl;
 import jp.co.amedev.amecolle.service.impl.UserDetailServiceImpl;
 import jp.co.amedev.amecolle.web.form.AdminHomeForm;
@@ -40,6 +41,10 @@ public class GachaResultController {
 
 	@Autowired
 	UserDetailServiceImpl userDetailServiceImpl; 
+
+	@Autowired
+	DeckServiceImpl deckServiceImpl; 
+
 	
 /*
 	@RequestMapping("/gachaResult")
@@ -88,10 +93,20 @@ public class GachaResultController {
 			int userId = (int) (userEntity.getId()) ; 
 			for (MCardEntity gatyaResult : cardList) {
 				cardServiceImpl.saveGatyaResult(gatyaResult,userId);				
+
+				//deckテーブルに行追加
+				String card1 = cardList.get(0).getCardId().toString();
+				String card2 = cardList.get(1).getCardId().toString();
+				String card3 = cardList.get(2).getCardId().toString();
+				
+				deckServiceImpl.deckCreate(userId, card1 ,card2,card3);
+			
 			}
 		} catch(Exception e){
 			throw new RuntimeException(e);
 		}
+		
+		
 		return("tutorialGachaResult");
 	}
 

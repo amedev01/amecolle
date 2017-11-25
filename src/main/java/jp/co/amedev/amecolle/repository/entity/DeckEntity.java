@@ -12,7 +12,7 @@ import javax.persistence.Table;
 public class DeckEntity {
 	@Id
 	@Column
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
 	@Column(length = 50, nullable = false ,name="deck_id")
